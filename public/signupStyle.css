@@ -1,0 +1,12 @@
+body {
+	height: 100%;
+	width: 100%;
+	background: url("http://toppho.net/wp-content/uploads/2015/04/Pho.jpg");
+	background-size: cover;
+}
+
+#signupForm {
+	background: rgba(241, 241, 241, 0.5);
+	padding: 20px 30px 20px 30px;
+	margin-top: 200px;
+}
