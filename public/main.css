@@ -1,0 +1,20 @@
+/*body {
+	height: 100%;
+	width: 100%;
+	background: url("https://i.ytimg.com/vi/BSlbgFn8l2Q/maxresdefault.jpg");
+	background-size: cover;
+}*/
+.panel {
+	text-align: center;
+}
+.panel button {
+	width: 350px;
+}
+
+#map {
+	width: 100%;
+	height: 500px;
+}
+.dropdown-menu li {
+	width: 350px;
+}

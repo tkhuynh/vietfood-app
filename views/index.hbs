@@ -10,7 +10,74 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<h1>Hello</h1>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		      </button>
+		      <a class="navbar-brand" href="#">WebSiteName</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="/">Home</a></li>
+		        <li><a href="/reviews">Reviews</a></li>
+		        <li><a href="/profile">Profile</a></li>
+		        <li><a href="/logout">Logout</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+		<div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <div class="btn-group btn-input clearfix" id="choices">
+                 <button type="button" class="btn btn-block btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                   <span data-bind="label">15 Common Vietnamse Dishes</span>&nbsp;<span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu" role="menu">
+                   <li><a href="#">Pho</a></li>
+                   <li><a href="#">Banh Mi</a></li>
+                   <li><a href="#">Bun Bo Hue</a></li>
+                 </ul>
+               </div>
+             </div>
+          </div>
+      </div>
+   </div>
+
+		<div class="container" hidden>
+			<div class="input-group stylish-input-group">
+				<input type="text" class="form-control"  placeholder="Search" >
+				<span class="input-group-addon">
+					<button type="submit">
+					<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div id="foodDescription">
+						 <script id="description-template" type="text/x-handlebars-template">
+						 	<h3>\{{dish.name}} - \{{dish.english}}</h3>
+						 	<h4><i>Pronounciation: \{{dish.pronounciation}}</i><h4>
+						 	<img src="\{{dish.image}}" class="img-responsive" style="width: 300px">
+						 	<p>\{{dish.description}} (\{{dish.source}})</p>
+						 </script>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
 		<!-- jquery -->
 	  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
