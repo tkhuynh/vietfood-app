@@ -1,0 +1,30 @@
+{
+  "name": "vietfood-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkhuynh/vietfood-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkhuynh/vietfood-app/issues"
+  },
+  "homepage": "https://github.com/tkhuynh/vietfood-app#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "hbs": "^4.0.0",
+    "mongoose": "^4.2.8",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "yelp": "^1.0.1"
+  }
+}
