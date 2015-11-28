@@ -21,7 +21,8 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 mongoose.connect("mongodb://localhost/vfood-app");
 
-var User= require("./models/user");
+var User= require("./models/user"),
+		Description = require("./models/description");
 
 // middleware for auth
 app.use(cookieParser());
@@ -106,6 +107,11 @@ dishes.forEach(function (dish) {
 					console.error(err);
 				});
 	});
+});
+
+//get all dishes descriptions
+app.get("/api/description", function (req, res) {
+		res.json({dishes: Description});
 });
 
 //listen to port 3000

@@ -46,6 +46,20 @@ $(function() {
 				});
 			});
 		});
+		
+		//get description of dish from manually built api then append to the page
+		$.get("/api/description", function (data) {
+			var dishes = data.dishes;
+			var foundDish;
+			dishes.forEach(function (dish) {
+				if (dish.name.toLowerCase() == keyword) {
+					foundDish = dish;
+				}
+			});
+			$("#foodDescription").empty();
+			var descriptionHtml = template({dish: foundDish});
+			$description.append(descriptionHtml);
+		});
 		createMap();
 	});
 });
