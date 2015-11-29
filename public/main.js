@@ -1,5 +1,11 @@
 $(function() {
-	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu", "bo kho", "banh xeo"];
+	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
+	commonDishes.forEach(function (dish) {
+		var capitalize = dish.replace(/^.|\s./g, function(x) {
+			return x.toUpperCase();
+		});
+		$("#dropdown-list").append("<li><a href='#'>"+ capitalize +"</a></li>");
+	});
 	var createMap = function() {
     	map = new google.maps.Map(document.getElementById('map'), {
       	center: { lat: 37.78, lng: -122.44 },
@@ -7,7 +13,8 @@ $(function() {
     	});
   	};
   //helper functions
-	function restaurantsSellThisDish(dish) {
+	function restaurantsSellThisDish(dish, keyword) {
+		$("#map").show();
 		$.get("/api/" + dish, function(data) {
 			var restaurants = data.restaurants;
 			var leftResult = restaurants.slice(0, 5);
@@ -76,14 +83,17 @@ $(function() {
   var template2 = Handlebars.compile(source2);
 
   //Top Dishes Option chosen
- 	$("#top").click(function () {
+ 	$("#top").on("click", function (event) {
+ 		$("#map").hide();
+ 		$("#foodDescription").empty();
+ 		$("#restaurantList").empty();
  		$("#commonDishes").show();
 	  $(".dropdown-menu li").click(function (event) {
 	  	var keyword = $(this).text();
 	  	$("span[data-bind='label']").html(keyword);
 			keyword = keyword.toLowerCase();
 			var dish = keyword.replace(/\s/g, "");
-			restaurantsSellThisDish(dish);
+			restaurantsSellThisDish(dish, keyword);
 		});
 	});
 	
@@ -93,6 +103,6 @@ $(function() {
 		var random = Math.floor((Math.random() * (commonDishes.length) + 1) + 1);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
-		restaurantsSellThisDish(dish);
+		restaurantsSellThisDish(dish, keyword);
 	});
 });

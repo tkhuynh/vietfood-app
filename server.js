@@ -95,7 +95,7 @@ var yelp = new Yelp({
 });
 
 //different get request for different disdes
-var dishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu", "bo kho", "banh xeo"];
+var dishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"];
 
 dishes.forEach(function (dish) {
 	app.get("/api/" + dish.replace(/\s/g,""), function (req, res) {
