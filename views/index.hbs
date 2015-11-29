@@ -35,19 +35,19 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-sm-4">
-						<button type="button" class="btn btn-danger options">Top Dishes</button>
+						<button type="button" class="btn btn-danger options" id="top">Top Dishes</button>
 					</div>
 					<div class="col-sm-4">
-						<button type="button" class="btn btn-danger options">Random Dish</button>
+						<button type="button" class="btn btn-danger options" id="random">Random Dish</button>
 					</div>
 					<div class="col-sm-4">
-						<button type="button" class="btn btn-danger options">Guru's Favorite</button>
+						<button type="button" class="btn btn-danger options" id="favorite">Guru's Favorite</button>
 					</div>
 				</div>
 			</div>
 			
 
-			<div class="container" id="commonDishes">
+			<div class="container" id="commonDishes" hidden>
 				<div class="row">
 					<div class="col-sm-8 col-sm-offset-2">
 						<div class="panel panel-default">
@@ -68,56 +68,57 @@
 				</div>
 			</div>
 			
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div id="foodDescription">
-							<script id="description-template" type="text/x-handlebars-template">
-								<h3>\{{dish.name}} - \{{dish.english}}</h3>
-								<h4><i>Pronounciation: \{{dish.pronounciation}}</i><h4>
-								<img src="\{{dish.image}}" class="img-responsive" style="width: 300px">
-								<p>\{{dish.description}} <i>(\{{dish.source}})</i></p>
-							</script>
+			<div id="result">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<div id="foodDescription">
+								<script id="description-template" type="text/x-handlebars-template">
+									<h3>\{{dish.name}} - \{{dish.english}}</h3>
+									<h4><i>Pronounciation: \{{dish.pronounciation}}</i><h4>
+									<img src="\{{dish.image}}" class="img-responsive" style="width: 300px">
+									<p>\{{dish.description}} <i>(\{{dish.source}})</i></p>
+								</script>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div id="map"></div>
 						</div>
 					</div>
-					<div class="col-sm-6">
-						<div id="map"></div>
-					</div>
+					<hr>
 				</div>
-				<hr>
-			</div>
-
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						<div class="row">
-							<div id="restaurantList">
-								<script id="restaurant-template" type="text/x-handlebars-template">
-									<div class="col-sm-6">
-										\{{#each lefts}}
-											<h4>\{{name}}</h4>
-											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[2]}}</p>
-											<p>Tel: \{{display_phone}}</p>
-											<hr>
-										\{{/each}}
-									</div>
-									<div class="col-sm-6">
-											\{{#each rights}}
-											<h4>\{{name}}</h4>
-											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[2]}}</p>
-											<p>Tel: \{{display_phone}}</p>
-											<hr>
-										\{{/each}}
-									</div>
-								</script>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-1">
+							<div class="row">
+								<div id="restaurantList">
+									<script id="restaurant-template" type="text/x-handlebars-template">
+										<div class="col-sm-6">
+												\{{#each lefts}}
+													<h4>\{{name}}</h4>
+													<p>\{{location.display_address.[0]}}</p>
+													<p>\{{location.display_address.[2]}}</p>
+													<p>Tel: \{{display_phone}}</p>
+													<hr>
+												\{{/each}}
+										</div>
+										<div class="col-sm-6">
+													\{{#each rights}}
+													<h4>\{{name}}</h4>
+													<p>\{{location.display_address.[0]}}</p>
+													<p>\{{location.display_address.[2]}}</p>
+													<p>Tel: \{{display_phone}}</p>
+													<hr>
+												\{{/each}}
+										</div>
+									</script>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
+			
 		</div>
 		<!-- <div class="container" hidden>
 			<div class="input-group stylish-input-group">
