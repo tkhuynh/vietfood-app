@@ -4,6 +4,21 @@
 	background: url("https://i.ytimg.com/vi/BSlbgFn8l2Q/maxresdefault.jpg");
 	background-size: cover;
 }*/
+.container-fluid {
+	padding: 0;
+}
+
+.navbar-inverse{
+	border-radius: 0px;
+}
+.navbar-nav li, .navbar-default .navbar-brand {
+	font-size: 18px;
+	font-family: Georgia;
+}
+ .options {
+ 	padding: 10px;
+  font-size: 32px;
+ }
 .panel {
 	text-align: center;
 }
@@ -17,4 +32,9 @@
 }
 .dropdown-menu li {
 	width: 350px;
+}
+
+#restaurantList p {
+	padding: 0;
+	margin: 0;
 }

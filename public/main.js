@@ -5,10 +5,14 @@ $(function() {
       	zoom: 13
     	});
   	};
-
+  //for food description
   var $description = $("#foodDescription");
-  var source = $("#description-template").html();
-  var template = Handlebars.compile(source);
+  var source1 = $("#description-template").html();
+  var template1 = Handlebars.compile(source1);
+
+  // for restaurants result
+  var source2 = $("#restaurant-template").html();
+  var template2 = Handlebars.compile(source2);
 
   $(".dropdown-menu li").click(function (event) {
   	var keyword = $(this).text();
@@ -16,10 +20,16 @@ $(function() {
 		keyword = keyword.toLowerCase();
 		var dish = keyword.replace(/\s/g, "");
 		$.get("/api/" + dish, function (data) {
-			console.log(data);
 			var restaurants = data.restaurants;
+			var leftResult = restaurants.slice(0,5);
+			var rightResult = restaurants.slice(-5);
+			$("#restaurantList").empty();
+			var restaurantHtmlLeft = template2({lefts: leftResult});
+			$("#restaurantList").append(restaurantHtmlLeft);
+			var restaurantHtmlRight = template2({rights: rightResult});
+			$("#restaurantList").append(restaurantHtmlRight);
+
 			restaurants.forEach(function(restaurant) {
-				// $("#result").append("<h3>"+restaurant.name+"</h3>");
 				var contentString = '<div id="content">'+
 											      '<div id="siteNo(tice">'+
 											      '</div>'+
@@ -57,7 +67,7 @@ $(function() {
 				}
 			});
 			$("#foodDescription").empty();
-			var descriptionHtml = template({dish: foundDish});
+			var descriptionHtml = template1({dish: foundDish});
 			$description.append(descriptionHtml);
 		});
 		createMap();
