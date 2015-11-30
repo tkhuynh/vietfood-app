@@ -2,6 +2,11 @@ $(function() {
 	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
 	var dried_non_noddle = ["Bo Luc Lac", "Com Tam Bi Suon Cha"];
 	var dried_noddle = ["Bun Thit Nuong"];
+	var spicy_soup = ["Bun Bo Hue"];
+	var non_spicy_soup = ["Pho", "Bun Rieu", "Hu Tieu Nam Vang", "Bo Kho"];
+	var apertizer = ["Cha Gio", "Goi Cuon", "Goi Du Du" ];
+	var non_apertizer = ["Banh Mi", "Banh Xeo"];
+	var drink = ["Che Ba Mau", "Cafe Sua Da"];
 	commonDishes.forEach(function (dish) {
 		var capitalize = dish.replace(/^.|\s./g, function(x) {
 			return x.toUpperCase();
@@ -130,9 +135,9 @@ $(function() {
 	}
 
 	//helper function 
-	function guruChoice (category) {
+	function guruChoice (message, category) {
 		var random = randomNum(category);
-		$("#question-holder").append("<h2>I Think You Should Try "+category[random]+"</h2>")
+		$("#question-holder").append("<h2>" + message +"<br>"+category[random]+"</h2>")
 			.append("<button type='button' class='btn btn-danger find'>Find Restaurants</button>");
 		keyword = category[random].toLowerCase();
 		var dish = keyword.replace(/\s/g, "");
@@ -150,24 +155,55 @@ $(function() {
 		$("#clickAnswer").on("click", function() {
 			//clear all questions first
 			$("#question-holder").empty();
-			questionMaker("Are You Really Hungry", "Yes", "No");
+			questionMaker("Are You Really Hungry?", "Yes", "No");
 			$(".left").click(function() {
 				$(this).parent().remove();
 				questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
 				$(".left").click(function() {
 					$(this).parent().remove();
-					questionMaker("Do You Like To Eat Noodle or Non-Noodle", "Non-Noodle", "Noddle");
+					questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle");
+					//case 1
 					$(".left").click(function() {
 						$(this).parent().remove();
-						guruChoice(dried_non_noddle);
+						guruChoice("I Think You Should Try", dried_non_noddle);
 					});
+					//case 2
 					$(".right").click(function () {
 						$(this).parent().remove();
-						guruChoice(dried_noddle);
+						guruChoice("I Think You Should Try", dried_noddle);
+					});
+				});
+				$(".right").click(function() {
+					$(this).parent().remove();
+					questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy");
+					//case 3
+					$(".left").click(function() {
+						$(this).parent().remove();
+						guruChoice("I Think You Should Try", spicy_soup);
+					});
+					//case 4
+					$(".right").click(function () {
+						$(this).parent().remove();
+						guruChoice("I Think You Should Try", non_spicy_soup);
 					});
 				});
 			});
-
+			$(".right").click(function() {
+				$(this).parent().remove();
+				questionMaker("Do You Just Like Apertizer or Sandwich?", "Apertizer", "Sandwich");
+				//case 5
+				$(".left").click(function() {
+					$(this).parent().remove();
+					guruChoice("I Think You Should Try", apertizer);
+					guruChoice("Or If You Just Want A Drink, Try", drink);
+				});
+				//case 6
+				$(".right").click(function () {
+					$(this).parent().remove();
+					guruChoice("I Think You Should Try", non_apertizer);
+					guruChoice("Or If You Just Want A Drink, Try", drink);
+				});
+			});
 		});
 	});
 });
