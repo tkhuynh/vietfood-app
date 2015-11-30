@@ -56,7 +56,14 @@
 .dropdown-menu li {
 	width: 350px;
 }
-
+#question-holder {
+	height: 300px;
+	width: 100%;
+	background-color: lightblue;
+}
+#question-holder h2 {
+	margin: 0;
+}
 #restaurantList p {
 	padding: 0;
 	margin: 0;

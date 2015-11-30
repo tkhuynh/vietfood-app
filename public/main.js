@@ -1,5 +1,7 @@
 $(function() {
 	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
+	var dried_non_noddle = ["Bo Luc Lac", "Com Tam Bi Suon Cha"];
+	var dried_noddle = ["Bun Thit Nuong"];
 	commonDishes.forEach(function (dish) {
 		var capitalize = dish.replace(/^.|\s./g, function(x) {
 			return x.toUpperCase();
@@ -82,11 +84,15 @@ $(function() {
   var source2 = $("#restaurant-template").html();
   var template2 = Handlebars.compile(source2);
 
-  //Top Dishes Option chosen
- 	$("#top").on("click", function (event) {
- 		$("#map").hide();
+  function hidden() {
+  	$("#map").hide();
  		$("#foodDescription").empty();
  		$("#restaurantList").empty();
+  }
+  //Top Dishes Option chosen
+ 	$("#top").on("click", function (event) {
+ 		hidden();
+ 		$("#answerMe").hide();
  		$("#commonDishes").show();
 	  $(".dropdown-menu li").click(function (event) {
 	  	var keyword = $(this).text();
@@ -98,14 +104,70 @@ $(function() {
 		});
 	});
 	
+	//helper function
+	//generation random number from 0 to less than array.length
+	function randomNum (array) {
+		return Math.floor(Math.random() * array.length);
+	}
+
+	//helper function 
 	//Random Options Chosen
 	$("#random").click(function () {
+		$("#answerMe").hide();
 		$("#commonDishes").hide();
 		$("#result").show();
-		var random = Math.floor((Math.random() * (commonDishes.length) + 1) + 1);
+		var random = randomNum(commonDishes);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
 	});
 
+	//function helper 
+	function questionMaker (question, answer1, answer2) {
+		$("#question-holder").append("<div class='question'><h2>"+question+"</h2></div>");
+		$(".question").append("<button type='button' class='btn btn-danger left'>"+ answer1 +"</button>")
+			.append("<button type='button' class='btn btn-danger right'>"+ answer2 +"</button>");
+	}
+
+	//helper function 
+	function guruChoice (category) {
+		var random = randomNum(category);
+		$("#question-holder").append("<h2>I Think You Should Try "+category[random]+"</h2>")
+			.append("<button type='button' class='btn btn-danger find'>Find Restaurants</button>");
+		keyword = category[random].toLowerCase();
+		var dish = keyword.replace(/\s/g, "");
+		$(".find").click(function () {
+			restaurantsSellThisDish(dish, keyword);
+			$("#result").show();
+		});
+	}
+	//Favorite Options Chosen
+	$("#favorite").click(function () {
+		hidden();
+		$("#question-holder").empty();
+		$("#commonDishes").hide();
+		$("#answerMe").show();
+		$("#clickAnswer").on("click", function() {
+			//clear all questions first
+			$("#question-holder").empty();
+			questionMaker("Are You Really Hungry", "Yes", "No");
+			$(".left").click(function() {
+				$(this).parent().remove();
+				questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
+				$(".left").click(function() {
+					$(this).parent().remove();
+					questionMaker("Do You Like To Eat Noodle or Non-Noodle", "Non-Noodle", "Noddle");
+					$(".left").click(function() {
+						$(this).parent().remove();
+						guruChoice(dried_non_noddle);
+					});
+					$(".right").click(function () {
+						$(this).parent().remove();
+						guruChoice(dried_noddle);
+					});
+				});
+			});
+
+		});
+	});
 });
