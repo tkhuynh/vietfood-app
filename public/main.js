@@ -21,6 +21,7 @@ $(function() {
   	};
   //helper functions
 	function restaurantsSellThisDish(dish, keyword) {
+		$("#answerMe").hide();
 		$("#map").show();
 		$.get("/api/" + dish, function(data) {
 			var restaurants = data.restaurants;

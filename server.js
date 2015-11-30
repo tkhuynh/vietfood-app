@@ -22,7 +22,8 @@ hbs.registerPartials(__dirname + "/views/partials");
 mongoose.connect("mongodb://localhost/vfood-app");
 
 var User= require("./models/user"),
-		Description = require("./models/description");
+		Description = require("./models/description"),
+		Review = require("./models/review");
 
 // middleware for auth
 app.use(cookieParser());
@@ -118,6 +119,28 @@ dishes.forEach(function (dish) {
 //get all dishes descriptions
 app.get("/api/description", function (req, res) {
 		res.json({dishes: Description});
+});
+
+//get all reviews
+app.get("/api/reviews", function (req, res) {
+	Review.find(function (err, allRevews) {
+		if (err) {
+			res.status(500).json({ error: err.message});
+		} else {
+			res.json({reviews: allRevews});
+		}
+	});
+});
+
+app.post("/api/reviews", function (res, req) {
+	var newReview = new Review (req.body);
+	newReview.save(function (err, saveReview) {
+		if (err) {
+			res.status(500).json({error: err.message});
+		} else {
+			res.json(savedReview);
+		}
+	});
 });
 
 //listen to port 3000
