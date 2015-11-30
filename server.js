@@ -121,6 +121,16 @@ app.get("/api/description", function (req, res) {
 		res.json({dishes: Description});
 });
 
+//reviews round
+app.get("/review", function (req, res) {
+	//prevent non logged in user to see reviews page
+	if (req.user) {
+		res.render("review", {user: req.user});
+	} else {
+		res.redirect("/signup");
+	}
+});
+
 //get all reviews
 app.get("/api/reviews", function (req, res) {
 	Review.find(function (err, allRevews) {
@@ -132,9 +142,9 @@ app.get("/api/reviews", function (req, res) {
 	});
 });
 
-app.post("/api/reviews", function (res, req) {
-	var newReview = new Review (req.body);
-	newReview.save(function (err, saveReview) {
+app.post("/api/reviews", function (req, res) {
+	var newReview = new Review(req.body);
+	newReview.save(function (err, savedReview) {
 		if (err) {
 			res.status(500).json({error: err.message});
 		} else {

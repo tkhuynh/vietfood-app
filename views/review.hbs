@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<!-- set viewport to device width to make site responsive -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="main.css">
+
+		<title>Reviews</title>
+	</head>
+	<body>
+		<h1>Hello</h1>
+		<div class="containter">
+			<div id="review-list">
+				<script id="review-template" type="text/x-handlebars-template">
+					\{{#each reviews}}
+						<div class="row">
+						<div class="col-sm-5">
+							<h3>\{{business}}</h3>
+						</div>
+						<div class="col-sm-7">
+							<h4>\{{thought}}</h4>
+						</div>
+					\{{/each}}
+				</script>
+			</div>
+			</div>
+		</div>
+
+		<!-- jquery -->
+	  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	  <!-- bootstrap js -->
+	  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	  <!-- handlebars -->
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+	  <!-- google maps -->
+	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
+
+	  <!-- custom script -->
+	  <script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
