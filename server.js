@@ -19,7 +19,10 @@ app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
 
-mongoose.connect("mongodb://localhost/vfood-app");
+mongoose.connect(
+	process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+	"mongodb://localhost/vfood-app");
 
 var User= require("./models/user"),
 		Description = require("./models/description"),
