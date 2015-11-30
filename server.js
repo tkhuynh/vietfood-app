@@ -52,17 +52,23 @@ app.get("/signup", function (req, res) {
 //save new user to db
 
 app.post('/signup', function (req, res) {
-  User.register(new User({ username: req.body.username }), req.body.password,
-    function (err, newUser) {
-      passport.authenticate('local')(req, res, function() {
-        res.redirect("/");
-      });
-    }
-  );
+	//prevent logged in user to sign up again
+	if (req.user) {
+		res.redirect("/");
+	} else {
+		User.register(new User({ username: req.body.username }), req.body.password,
+	    function (err, newUser) {
+	      passport.authenticate('local')(req, res, function() {
+	        res.redirect("/");
+	      });
+	    }
+	  );
+	}
 });
 
 //show login view
 app.get("/login", function (req, res) {
+	//prevent login user to see login page again
 	if (req.user) {
 		res.redirect("/");
 	} else {
@@ -81,9 +87,9 @@ app.get("/logout", function (req, res) {
 	res.redirect("/");
 });
 
-//hello word test
+//home page round
 app.get("/", function (req, res) {
-	res.render("index");
+	res.render("index", {user: req.user});
 });
 
 //import yelp API needed keys

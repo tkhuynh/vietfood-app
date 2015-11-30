@@ -94,15 +94,18 @@ $(function() {
 			keyword = keyword.toLowerCase();
 			var dish = keyword.replace(/\s/g, "");
 			restaurantsSellThisDish(dish, keyword);
+			$("#result").show();
 		});
 	});
 	
 	//Random Options Chosen
 	$("#random").click(function () {
 		$("#commonDishes").hide();
+		$("#result").show();
 		var random = Math.floor((Math.random() * (commonDishes.length) + 1) + 1);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
 	});
+
 });

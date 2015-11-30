@@ -63,7 +63,7 @@ var data = [
 		source: "Wikipedia"
 	},
 	{
-		name: "Goi Cuon",
+		name: "Cha Gio",
 		english: "Egg Rolls",
 		description: "Goi Cuon is a Vietnamese dish traditionally consisting of pork, prawn, vegetables, bún (rice vermicelli), and other ingredients wrapped in Vietnamese bánh tráng (commonly known as rice paper). They are served at room temperature (or cooled) and are not deep fried or cooked on the outside. It is listed at number 30 on World's 50 most delicious foods complied by CNN Go in 2011.",
 		image: "http://d1v827hezncazj.cloudfront.net/wp-content/uploads/egg-rolls-final.jpg",

@@ -5,6 +5,7 @@
 		<!-- set viewport to device width to make site responsive -->
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="main.css">
 
 		<title>Document</title>
@@ -12,7 +13,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="navbar navbar-inverse" role="navigation">
-      	<div class="container">
+      	<div class="container-fluid">
 	        <div class="navbar-header">
 	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 	            <span class="icon-bar"></span>
@@ -23,10 +24,16 @@
 	        </div>
 	        <div class="navbar-collapse collapse navbar-right">
 	          <ul class="nav navbar-nav">
-	            <li><a href="/">Home</a></li>
-	            <li><a href="/review">Victory</a></li>
-	            <li><a href="/profile">About Me</a></li>
-	            <li><a href="/logout">Logout</a></li>
+	          	{{#if user}}
+	          		<li><a href="/profile">Hello {{user.username}}</a></li>
+		            <li><a href="/">Home</a></li>
+		            <li><a href="/review">Reviews</a></li>
+		            <li><a href="/logout">Logout</a></li>
+		          {{else }}
+		          	<li><a href="/">Home</a></li>
+		          	<li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		          	<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		          {{/if}}
 	          </ul>
 	        </div>
       	</div>
@@ -66,7 +73,7 @@
 				</div>
 			</div>
 			
-			<div id="result">
+			<div id="result" hidden>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
@@ -74,6 +81,7 @@
 								<script id="description-template" type="text/x-handlebars-template">
 									<h3>\{{dish.name}} - \{{dish.english}}</h3>
 									<img src="\{{dish.image}}" class="img-responsive" style="width: 300px">
+									<br>
 									<p>\{{dish.description}} <i>(\{{dish.source}})</i></p>
 								</script>
 							</div>
@@ -82,7 +90,6 @@
 							<div id="map"></div>
 						</div>
 					</div>
-					<hr>
 				</div>
 				<div class="container">
 					<div class="row">
@@ -111,6 +118,19 @@
 									</script>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container" id="answerMe" hidden>
+				<div class="row">
+					<div class="col-sm-4">
+						<img src="http://www.gyanibaba.in/wp-content/uploads/2015/09/gyani-baba-copy1.png" class="img-responsive">
+					</div>
+
+					<div class="col-sm-8">
+						<div class="text-center" id="questions">
 						</div>
 					</div>
 				</div>

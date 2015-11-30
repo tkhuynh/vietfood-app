@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
 	<link type="text/css" rel="stylesheet" href="signupStyle.css">
 
 	<title>Sign Up</title>
 </head>
 <body>
-	
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -17,17 +18,46 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>                        
 	      </button>
-	      <a class="navbar-brand" href="#">WebSiteName</a>
+	      <a class="navbar-brand" href="#">VietFoodGuru</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
+	      	<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Guest</a></li>
 	        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
 	    </div>
 	  </div>
 	</nav>
-
+	
 	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 text-center" id=>
+				<img src="http://www.vietflames.co.nz/file/2015/05/vietnamese-cuisine-2.jpg" class="img-thumbnail img-responsive" id="main-left-img">
+				<div class="text-center" id="slogan">
+					<h2>VietFoodGuru</h2>
+					<h4>The Quickest Way To Explore Vietnamese Cuisine in San Francisco</h4>
+				</div>
+			</div>
+
+			<div class="col-sm-5 text-center" id="signupForm">
+				<h2>Sign Up</h2>
+				<br>
+				<form method="POST" action="/signup">
+					<div class="form-group">
+						<input type="text" name="username" class="form-control" placeholder="Username" autofocus>
+					</div>
+					<div class="form-group">
+						<input type="password" name="password" class="form-control" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-block btn-danger" value="Sign Up">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="container" id="signup-holder" hidden>
 		<div class="row text-center">
 			<div class="col-sm-4 col-sm-offset-4">
 				<div class="row" id="signupForm">
@@ -48,8 +78,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</div> -->
+	<!-- </div> -->
 	<!-- jquery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 	<!-- bootstrap js -->

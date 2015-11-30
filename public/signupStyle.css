@@ -1,12 +1,60 @@
 body {
 	height: 100%;
 	width: 100%;
-	background: url("http://toppho.net/wp-content/uploads/2015/04/Pho.jpg");
+	background: url("http://messiz.mobi/wp-content/uploads/indian-food-backgrounds-images-12.jpg");
 	background-size: cover;
+}
+.navbar-inverse .navbar-toggle {
+	border: 1px solid white;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+	border: none;
+}
+.navbar-inverse{
+	border: none;
+	border-radius: 0px;
+	background: rgba(226, 112, 7, 0.8);
+	height: 75px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	font-size: 20px;
+	padding-top: 30px;
+	color: white;
+}
+.navbar-inverse .navbar-brand {
+	font-family: 'Knewave', cursive;
+	font-size: 46px;
+	padding-top: 30px;
+	color: white;
+}
+#main-left-img { 
+   position: relative; 
+   margin-top: 50px;
+}
+
+#slogan { 
+	background: rgba(148, 16, 31, 0.5);
+  position: absolute; 
+  top: 30%; 
+  left: 20%; 
+  right: 20%;
+  padding: 15px;
+}
+#slogan h2 {
+	font-family: 'Knewave', cursive;
+	font-size: 36px;
+	color: #f2dedc;
+}
+h4 {
+	font-family: 'Yellowtail', cursive;
+	color: #f2dedc;
+	font-size: 24px;
 }
 
 #signupForm {
 	background: rgba(241, 241, 241, 0.5);
 	padding: 20px 30px 20px 30px;
-	margin-top: 200px;
+	margin-top: 100px;
 }

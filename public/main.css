@@ -8,12 +8,35 @@
 	padding: 0;
 }
 
-.navbar-inverse{
-	border-radius: 0px;
 }
-.navbar-nav li, .navbar-default .navbar-brand {
-	font-size: 18px;
-	font-family: Georgia;
+.navbar-inverse .navbar-toggle {
+	border: 1px solid white;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+	border: none;
+}
+.navbar-inverse{
+	border: none;
+	border-radius: 0px;
+	background: rgba(226, 112, 7, 0.8);
+	height: 75px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	font-size: 20px;
+	padding-top: 30px;
+	color: white;
+}
+.navbar-inverse .navbar-brand {
+	font-family: 'Knewave', cursive;
+	font-size: 46px;
+	padding-top: 30px;
+	color: white;
+}
+
+.navbar>.container-fluid .navbar-brand {
+    margin-left: 15px;
 }
  .options {
  	padding: 10px;
