@@ -45,9 +45,9 @@ passport.deserializeUser(User.deserializeUser());
 
 
 //sign up page
-app.get("/signup", function (req, res) {
+app.get("/", function (req, res) {
 	if (req.user) {
-		res.redirect("/");
+		res.redirect("/home");
 	} else {
 		res.render("signup", {user: req.user});
 	}
@@ -55,15 +55,15 @@ app.get("/signup", function (req, res) {
 
 //save new user to db
 
-app.post('/signup', function (req, res) {
+app.post("/", function (req, res) {
 	//prevent logged in user to sign up again
 	if (req.user) {
-		res.redirect("/");
+		res.redirect("/home");
 	} else {
 		User.register(new User({ username: req.body.username }), req.body.password,
 	    function (err, newUser) {
 	      passport.authenticate('local')(req, res, function() {
-	        res.redirect("/");
+	        res.redirect("/home");
 	      });
 	    }
 	  );
@@ -74,7 +74,7 @@ app.post('/signup', function (req, res) {
 app.get("/login", function (req, res) {
 	//prevent login user to see login page again
 	if (req.user) {
-		res.redirect("/");
+		res.redirect("/home");
 	} else {
 		res.render("login", {user: req.user});
 	}
@@ -82,17 +82,17 @@ app.get("/login", function (req, res) {
 
 //login user
 app.post("/login", passport.authenticate("local"), function (req, res) {
-	res.redirect("/");
+	res.redirect("/home");
 });
 
 //logout user
 app.get("/logout", function (req, res) {
 	req.logout();
-	res.redirect("/");
+	res.redirect("/home");
 });
 
 //home page round
-app.get("/", function (req, res) {
+app.get("/home", function (req, res) {
 	res.render("index", {user: req.user});
 });
 
@@ -130,7 +130,7 @@ app.get("/review", function (req, res) {
 	if (req.user) {
 		res.render("review", {user: req.user});
 	} else {
-		res.redirect("/signup");
+		res.redirect("/");
 	}
 });
 
