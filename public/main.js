@@ -95,20 +95,58 @@ $(function() {
  		$("#foodDescription").empty();
  		$("#restaurantList").empty();
   }
-  //Top Dishes Option chosen
- 	$("#top").on("click", function (event) {
- 		hidden();
- 		$("#answerMe").hide();
- 		$("#commonDishes").show();
-	  $(".dropdown-menu li").click(function (event) {
-	  	var keyword = $(this).text();
-	  	$("span[data-bind='label']").html(keyword);
-			keyword = keyword.toLowerCase();
-			var dish = keyword.replace(/\s/g, "");
-			restaurantsSellThisDish(dish, keyword);
-			$("#result").show();
+
+  //Top Dishes option trial
+	$(".topOption").click(function() {
+		$("#panel").slideToggle("slow");
+		$("#lower").toggle();
+	});
+	$(".topOption2").click(function() {
+		$('#picsHolder2').hide();
+		$('#picsHolder1').show();
+		$("#panel").slideToggle("slow");
+		$("#lower").toggle();
+	});
+
+	$(".next").click(function(){
+		$('#picsHolder1').hide();
+		$('#picsHolder2').slideToggle("slow");
+	});
+	$(".back").click(function(){
+		$('#picsHolder2').hide();
+		$('#picsHolder1').slideToggle("slow");
+	});
+
+	$("#picsHolder1, #picsHolder2").on("click", "img", function(event) {
+		event.preventDefault();
+		hidden();
+		var picsHolder = $(this).parent().parent().parent();
+		var keyword = $(this).attr("id").replace(/_/g, " ");
+		var dish = keyword.replace(/\s/g, "");
+		restaurantsSellThisDish(dish, keyword);
+		$("#result").show();
+		picsHolder.toggle();
+		$(".goBack").click(function () {
+			picsHolder.show();
+			hidden();
 		});
 	});
+
+	//need to DELETE
+ //  //Top Dishes Option chosen
+ // 	$("#top").on("click", function (event) {
+ // 		hidden();
+ // 		$("#answerMe").hide();
+ // 		$("#commonDishes").show();
+	//   $(".dropdown-menu li").click(function (event) {
+	//   	var keyword = $(this).text();
+	//   	$("span[data-bind='label']").html(keyword);
+	// 		keyword = keyword.toLowerCase();
+	// 		var dish = keyword.replace(/\s/g, "");
+	// 		restaurantsSellThisDish(dish, keyword);
+	// 		$("#result").show();
+	// 	});
+	// });
 	
 	//helper function
 	//generation random number from 0 to less than array.length

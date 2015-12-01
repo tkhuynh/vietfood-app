@@ -1,18 +1,20 @@
-/*body {
+body {
 	height: 100%;
 	width: 100%;
-	background: url("https://i.ytimg.com/vi/BSlbgFn8l2Q/maxresdefault.jpg");
+	/*background: url("https://i.ytimg.com/vi/BSlbgFn8l2Q/maxresdefault.jpg");*/
 	background-size: cover;
-}*/
+}
+.row {
+
+	margin: 0;
+	/*margin: 0;*/
+}
 .container-fluid {
 	padding: 0;
-}
-
 }
 .navbar-inverse .navbar-toggle {
 	border: 1px solid white;
 }
-
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
 	border: none;
 }
@@ -21,8 +23,9 @@
 	border-radius: 0px;
 	background: rgba(226, 112, 7, 0.8);
 	height: 75px;
+	margin-bottom: 0;
+	z-index: 1;
 }
-
 .navbar-inverse .navbar-nav>li>a {
 	font-size: 20px;
 	padding-top: 30px;
@@ -34,9 +37,28 @@
 	padding-top: 30px;
 	color: white;
 }
-
 .navbar>.container-fluid .navbar-brand {
     margin-left: 15px;
+}
+#sandwich-img {
+	margin-top: -100px;
+	z-index: -1;
+	position: relative;
+}
+#option1 { 
+  position: absolute; 
+  top: 15%; 
+  left: 20%; 
+  right: 20%;
+}
+#img-holder { 
+  position: absolute; 
+  top: 15%;
+}
+#option1 h2 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 60px;
+	color: white;
 }
  .options {
  	padding: 10px;
@@ -48,7 +70,20 @@
 .panel button {
 	width: 350px;
 }
-
+span.topOption, span.topOption2, span.goBack {
+	float: right;
+	margin: 10px 0px 10px 0px;
+}
+#lower {
+	padding: 0;
+}
+#picsHolder1, #picsolder2 {
+	position: relative;
+	margin: 15px 0px 15px 0px;
+}
+#picsHolder1 img, #picsHolder1 span, #picsHolder2 img, #picsHolder2s span, span.goBack, span.topOption2 {
+	cursor: pointer;
+}
 #map {
 	width: 100%;
 	height: 500px;
