@@ -136,24 +136,34 @@ app.get("/review", function (req, res) {
 
 //get all reviews
 app.get("/api/reviews", function (req, res) {
-	Review.find(function (err, allRevews) {
-		if (err) {
-			res.status(500).json({ error: err.message});
-		} else {
-			res.json({reviews: allRevews});
-		}
-	});
+	Review.find()
+		.populate("author")
+			.exec(function (err, allReviews) {
+				if (err) {
+					res.status(500).json({ error: err.message});
+				} else {
+					res.json({reviews: allReviews});
+				}
+			});
 });
 
 app.post("/api/reviews", function (req, res) {
-	var newReview = new Review(req.body);
-	newReview.save(function (err, savedReview) {
+	//only allow user to do review part
+	if (req.user) {
+		var newReview = new Review(req.body);
+		newReview.author = req.user._id;
+		newReview.dateVisited = (new Date()).toDateString();
+		newReview.save(function (err, savedReview) {
 		if (err) {
 			res.status(500).json({error: err.message});
 		} else {
 			res.json(savedReview);
 		}
 	});
+
+	} else {
+		res.status(401).json({error: "Unauthorized"});
+	}
 });
 
 //listen to port 3000

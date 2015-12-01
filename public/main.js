@@ -207,32 +207,21 @@ $(function() {
 			});
 		});
 	});
-
-	//reviews part
-	var baseUrl = "/api/reviews";
-	var allReviews = [];
-	// var $reviewList = $("#review-list");
-	// var source3 = $("#review-template").html();
-	// var template3 = Handlebars.compile(source3);
-	// //helper function
-	function render () {
-		$reviewList.empty();
-		var reviewHtml = template3 ({reviews: allReviews});
-		$reviewList.append(reviewHtml);
-	}
-
-	// $.get(baseUrl, function (data) {
-	// 	allReviews = data.reviews;
-	// 	render();
-	// });
+	
+	//save name in of restaurant user chose to go in review database
 	$("#restaurantList").on("click", ".btn", function (event) {
 		event.preventDefault();
 		var name = $(this).attr("id");
 		console.log(name);
-		var reviewNeedToBeWritten = {business: name, thought: "Please Write Your Review Here"};
-		$.post(baseUrl, reviewNeedToBeWritten, function (data) {
+		var reviewNeedToBeWritten = {
+			business: name, 
+			thought: "Review for this visit has not been posted yet.",
+			dateVisited: (new Date()).toDateString()
+		};
+		$.post("/api/reviews", reviewNeedToBeWritten, function (data) {
 			allReviews.push(data);
 			console.log(allReviews);
+			render();
 		});
 	});
 });

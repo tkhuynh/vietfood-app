@@ -5,26 +5,28 @@
 		<!-- set viewport to device width to make site responsive -->
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="main.css">
 
 		<title>Reviews</title>
 	</head>
 	<body>
-		<h1>Hello</h1>
-		<div class="containter">
+		{{> navbar}}
+		<div class="container">
 			<div id="review-list">
 				<script id="review-template" type="text/x-handlebars-template">
 					\{{#each reviews}}
 						<div class="row">
-						<div class="col-sm-5">
-							<h3>\{{business}}</h3>
-						</div>
-						<div class="col-sm-7">
-							<h4>\{{thought}}</h4>
+							<div class="col-sm-5">
+								<h3>\{{business}}</h3>
+								<h4>\{{author.username}} went here on \{{dateVisited}}</h4>
+							</div>
+							<div class="col-sm-7">
+								<h4>\{{thought}}</h4>
+							</div>
 						</div>
 					\{{/each}}
 				</script>
-			</div>
 			</div>
 		</div>
 
@@ -41,6 +43,6 @@
 	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
 
 	  <!-- custom script -->
-	  <script type="text/javascript" src="main.js"></script>
+	  <script type="text/javascript" src="allreviews.js"></script>
 	</body>
 </html>

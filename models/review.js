@@ -4,6 +4,7 @@ var mongoose = require("mongoose"),
 var ReviewSchema = new Schema({
 				business: String,
 				thought: String,
+				dateVisited: String,
 				author: {
 					type: Schema.Types.ObjectId,
 					ref: "User"
