@@ -18,11 +18,12 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>                        
 	      </button>
-	      <a class="navbar-brand" href="/">VietFoodGuru</a>
+	      <a class="navbar-brand" href="#">VietFoodGuru</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
 	      	<li><a href="/home"><span class="glyphicon glyphicon-log-in"></span> Guest Login</a></li>
+	        <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -40,7 +41,7 @@
 			<div class="col-sm-5 text-center" id="signinForm">
 				<form class="form-signin" method="POST" action="/login">
 					<h2 class="form-signin-heading">Please sign in</h2>
-					<input type="text" name="username" class="form-control" placeholder="Email address" required autofocus style="height: 50px">
+					<input type="text" name="username" class="form-control" placeholder="User Name" required autofocus style="height: 50px">
 					<input type="password" name="password" class="form-control" placeholder="Password" required style="height: 50px">
 					<br>
 					<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Sign in</button>
@@ -48,6 +49,10 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<!-- jquery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<!-- bootstrap js -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

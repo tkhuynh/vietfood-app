@@ -1,40 +1,37 @@
 body {
 	height: 100%;
 	width: 100%;
-	/*background: url("https://i.ytimg.com/vi/BSlbgFn8l2Q/maxresdefault.jpg");*/
 	background-size: cover;
 }
 .row {
-
 	margin: 0;
-	/*margin: 0;*/
 }
 .container-fluid {
 	padding: 0;
 }
-.navbar-inverse .navbar-toggle {
+/*.navbar-inverse .navbar-toggle {
 	border: 1px solid white;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
 	border: none;
-}
+}*/
 .navbar-inverse{
-	border: none;
+	/*border: none;*/
 	border-radius: 0px;
-	background: rgba(226, 112, 7, 0.8);
-	height: 75px;
+	/*background: rgba(226, 112, 7, 0.8);*/
+	/*height: 75px;*/
 	margin-bottom: 0;
-	z-index: 1;
+	/*z-isndex: 1;*/
 }
 .navbar-inverse .navbar-nav>li>a {
 	font-size: 20px;
-	padding-top: 30px;
-	color: white;
+	/*padding-top: 30px;*/
+	/*color: white;*/
 }
 .navbar-inverse .navbar-brand {
 	font-family: 'Knewave', cursive;
-	font-size: 46px;
-	padding-top: 30px;
+	font-size: 36px;
+	/*padding-top: 30px;*/
 	color: white;
 }
 .navbar>.container-fluid .navbar-brand {
@@ -126,4 +123,15 @@ span.topOption, span.topOption2, span.goBack, span.goBack2 {
 #restaurantList p {
 	padding: 0;
 	margin: 0;
+}
+@media (max-width: 600px) {
+  button#topDishes, button#random {
+		padding: 5px;
+	  font-size: 16px;
+	}
+	.option h2 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 30px;
+	color: white;
+}
 }

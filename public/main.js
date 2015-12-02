@@ -34,7 +34,7 @@ $(function() {
 			var restaurantHtmlLeft = template2({
 				lefts: leftResult
 			});
-			$("#result, .goBack").show();
+			$("#result, .goBack, .goBack2").show();
 			$("#restaurantList").append(restaurantHtmlLeft);
 			var restaurantHtmlRight = template2({
 				rights: rightResult
@@ -154,12 +154,13 @@ $(function() {
 		$("#lower1, #lower2").hide();
 		$("#answerMe").hide();
 		$("#commonDishes").hide();
-		$("#result, .goBack").show();
+		$("#result, .goBack2").show();
 		var random = randomNum(commonDishes);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
 		$(".goBack2").click(function() {
+			$("#goBack-holder").empty();
 			$("#lower1, #lower2").show();
 			hidden();
 			$("html, body").animate({

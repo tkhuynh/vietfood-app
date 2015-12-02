@@ -4,29 +4,16 @@ body {
 	background: url("http://messiz.mobi/wp-content/uploads/indian-food-backgrounds-images-12.jpg");
 	background-size: cover;
 }
-.navbar-inverse .navbar-toggle {
-	border: 1px solid white;
-}
-
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-	border: none;
-}
 .navbar-inverse{
-	border: none;
 	border-radius: 0px;
-	background: rgba(226, 112, 7, 0.8);
-	height: 75px;
 }
-
 .navbar-inverse .navbar-nav>li>a {
 	font-size: 20px;
-	padding-top: 30px;
 	color: white;
 }
 .navbar-inverse .navbar-brand {
 	font-family: 'Knewave', cursive;
-	font-size: 46px;
-	padding-top: 30px;
+	font-size: 36px;
 	color: white;
 }
 #main-left-img { 
