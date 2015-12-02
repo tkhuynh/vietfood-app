@@ -257,9 +257,6 @@ $(function() {
 			dateVisited: (new Date()).toDateString()
 		};
 		$.post("/api/reviews", reviewNeedToBeWritten, function (data) {
-			allReviews.push(data);
-			console.log(allReviews);
-			render();
 		});
 	});
 });

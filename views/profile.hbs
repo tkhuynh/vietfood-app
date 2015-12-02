@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<!-- set viewport to device width to make site responsive -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+		<link type="text/css" rel="stylesheet" href="main.css">
+
+		<title>Reviews</title>
+	</head>
+	<body>
+		{{> navbar}}
+
+		<div class="container">
+			<div id="visitedPlace-list">
+				{{#if user.reviews}}
+					{{#each user.reviews}}
+						<div class="row">
+							<div class="col-sm-12">
+								<h3>{{business}}</h3>
+							</div>
+						</div>
+						<div class="row"></div>
+							<div class="col-sm-5">
+								<h4><i>Visisted on {{dateVisited}}</i></h4>
+							</div>
+							<div class="col-sm-7">
+								<h4>{{thought}}</h4>
+								<button type="button" class="btn btn-default pull-right edit-button" aria-label="Left Align" id="{{_id}}">
+									<span class="glyphicon glyphicon-edit glyphicon-align-left" aria-hidden="true"></span>
+								</button>
+								<form id="edit-form" hidden>
+									<input type="hidden" name="business" class="form-control" value="{{business}}" style="height: 50px">
+									<input type="hidden" name="dateVisited" class="form-control" value="{{dateVisited}}" style="height: 50px">
+									<input type="text" name="thought" class="form-control" style="height: 50px" placeholder="Please write your review">
+									<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Edit</button>
+								</form>
+							</div>
+						</div>
+					{{/each}}
+				{{else}}
+					<h3 class="text-center">You haven't went to any recommended restaurant.</h3>
+				{{/if}}
+			</div>
+		</div>
+
+		<!-- jquery -->
+	  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	  <!-- bootstrap js -->
+	  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	  <!-- handlebars -->
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+	  <!-- google maps -->
+	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
+
+	  <!-- custom script -->
+	  <script type="text/javascript" src="profile.js"></script>
+	</body>
+</html>

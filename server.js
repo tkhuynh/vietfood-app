@@ -96,6 +96,15 @@ app.get("/home", function (req, res) {
 	res.render("index", {user: req.user});
 });
 
+//profile page round
+app.get("/profile", function (req, res) {
+	if (req.user) {
+		res.render("profile", {user: req.user});
+	} else {
+		res.redirect("/");
+	}
+});
+
 //import yelp API needed keys
 var yelp = new Yelp({
   consumer_key: process.env.my_consumer_key,
@@ -147,22 +156,52 @@ app.get("/api/reviews", function (req, res) {
 			});
 });
 
-app.post("/api/reviews", function (req, res) {
+//edit review route
+app.put("/api/reviews/:id", function (req,res) {
+	if (req.user) {
+		var id = req.params.id;
+		//find current logged in user who about to edit
+		User.findOne({_id : req.user._id}, function (err, foundUser) {
+			var userReviews = foundUser.reviews;
+			//make sure the id of review belong to user
+			if (userReviews.indexOf(id) > -1) {
+				Review.findOne({_id : id}, function (err, foundReview) {
+					foundReview.business = req.body.business;
+					foundReview.dateVisited = req.body.dateVisited;
+					foundReview.thought = req.body.thought;
+					foundReview.save(function (err, editedReview) {
+						res.json(editedReview);
+						req.user.save();
+					});
+				});
+			}
+		});
+	}
+});
+
+app.post("/api/reviews", function(req, res) {
 	//only allow user to do review part
 	if (req.user) {
 		var newReview = new Review(req.body);
 		newReview.author = req.user._id;
 		newReview.dateVisited = (new Date()).toDateString();
 		newReview.save(function (err, savedReview) {
-		if (err) {
-			res.status(500).json({error: err.message});
-		} else {
-			res.json(savedReview);
-		}
-	});
-
+			if (err) {
+				res.status(500).json({
+					error: err.message
+				});
+			} else {
+				//save review to user review collection
+				req.user.reviews.unshift(savedReview);
+				//update user
+				req.user.save();
+				res.json(savedReview);
+			}
+		});
 	} else {
-		res.status(401).json({error: "Unauthorized"});
+		res.status(401).json({
+			error: "Unauthorized"
+		});
 	}
 });
 

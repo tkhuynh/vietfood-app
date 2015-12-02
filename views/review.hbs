@@ -17,9 +17,13 @@
 				<script id="review-template" type="text/x-handlebars-template">
 					\{{#each reviews}}
 						<div class="row">
-							<div class="col-sm-5">
+							<div class="col-sm-12">
 								<h3>\{{business}}</h3>
-								<h4>\{{author.username}} went here on \{{dateVisited}}</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-5">
+								<h4><i>\{{author.username}} visisted here on \{{dateVisited}}</i></h4>
 							</div>
 							<div class="col-sm-7">
 								<h4>\{{thought}}</h4>

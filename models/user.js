@@ -4,10 +4,17 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema({
   username: String,
-  password: String
+  password: String,
+  reviews: [{
+		type: Schema.Types.ObjectId,
+		ref: "Review"
+	}]
 });
 
-UserSchema.plugin(passportLocalMongoose);
+//need to populate reviews
+UserSchema.plugin(passportLocalMongoose , {
+	populateFields: "reviews"
+});
 
 var User = mongoose.model('User', UserSchema);
 
