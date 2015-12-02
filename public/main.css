@@ -38,16 +38,24 @@ body {
 	color: white;
 }
 .navbar>.container-fluid .navbar-brand {
-    margin-left: 15px;
+  margin-left: 15px;
 }
-#sandwich-img {
-	margin-top: -100px;
-	z-index: -1;
+#papayaSalad-img, #summerRoll-img {
 	position: relative;
 }
-#option1 { 
+button#topDishes, button#random {
+	padding: 10px;
+  font-size: 26px;
+}
+.option { 
   position: absolute; 
-  top: 15%; 
+  top: 20%; 
+  left: 20%; 
+  right: 20%;
+}
+#lower2 .option { 
+  position: absolute; 
+  top: 30%; 
   left: 20%; 
   right: 20%;
 }
@@ -55,34 +63,50 @@ body {
   position: absolute; 
   top: 15%;
 }
-#option1 h2 {
+.option h2 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 60px;
 	color: white;
 }
- .options {
- 	padding: 10px;
-  font-size: 32px;
- }
-.panel {
+
+#panel {
 	text-align: center;
+	background-color: #F1F2F2;
+	margin-top: 15px;
 }
-.panel button {
-	width: 350px;
-}
-span.topOption, span.topOption2, span.goBack {
+
+span.topOption, span.topOption2, span.goBack, span.goBack2 {
 	float: right;
 	margin: 10px 0px 10px 0px;
 }
-#lower {
+#lower1, #lower2 {
 	padding: 0;
 }
 #picsHolder1, #picsolder2 {
 	position: relative;
 	margin: 15px 0px 15px 0px;
 }
-#picsHolder1 img, #picsHolder1 span, #picsHolder2 img, #picsHolder2s span, span.goBack, span.topOption2 {
+#picsHolder1 img, #picsHolder1 span, #picsHolder2 img, #picsHolder2s span, span.goBack,span.goBack2 , span.topOption2 {
 	cursor: pointer;
+}
+#picsHolder1 span, #picsHolder2s span, span.goBack, span.goBack2, span.topOption2 {
+	color: #A9A9A9;
+}
+.next, .back {
+  border: none;
+  width: 11.125rem;
+  height: 2.8125rem;
+  background-color: #333;
+  line-height: 4.75rem;
+  font: normal 15px "Gotham SSm 5r";
+  text-transform: uppercase;
+  color: #fff;
+}
+#foodDescription img {
+	margin: 0 auto;
+}
+#foodDescription p {
+	font-size: 15px;
 }
 #map {
 	width: 100%;
