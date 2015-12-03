@@ -14,6 +14,10 @@ $(function () {
 
 	$.get(baseUrl, function (data) {
 		allReviews = data.reviews;
+		allReviews.sort(function(a,b){
+			//Date.parse convert string date to date number
+			return Date.parse(b.dateVisited) - Date.parse(a.dateVisited);
+		});
 		render();
 	});
 });

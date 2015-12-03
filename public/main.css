@@ -37,7 +37,7 @@ button#topDishes, button#random {
   left: 20%; 
   right: 20%;
 }
-#lower2 .option { 
+#lower2 .option, #msg { 
   position: absolute; 
   top: 30%; 
   left: 20%; 
@@ -51,6 +51,7 @@ button#topDishes, button#random {
 	font-family: 'Oswald', sans-serif;
 	font-size: 60px;
 	color: white;
+	text-shadow: 1px 1px #333
 }
 
 #panel {
@@ -59,11 +60,7 @@ button#topDishes, button#random {
 	margin-top: 15px;
 }
 
-/*span.topOption, span.topOption2, span.goBack, span.goBack2, span.goBack3 {
-	float: right;
-	margin: 10px 0px 10px 0px;
-}*/
-#lower1, #lower2 {
+#lower1, #lower2, #reminder {
 	padding: 0;
 }
 #picsHolder1, #picsolder2 {
@@ -78,7 +75,7 @@ button#topDishes, button#random {
 	float: right;
 	margin: 10px 0px 10px 0px;
 }
-.next, .back {
+.next, .back , .ok, .chosen {
   border: none;
   width: 11.125rem;
   height: 2.8125rem;
@@ -104,9 +101,21 @@ button#topDishes, button#random {
 #restaurantList h4, #restaurantList p {
 	padding-left: 15px;
 }
+#msg { 
+  position: absolute; 
+  top: 20%; 
+  left: 20%; 
+  right: 20%;
+}
+#msg h2 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 45px;
+	color: white;
+	text-shadow: 1px 1px #333
+}
 #question-holder {
 	position: relative;
-	/*height: 600px;*/
+	height: 500px;
 	width: 100%;
 	background-color: lightblue;
 	margin-bottom: 40px;
@@ -117,28 +126,15 @@ button#topDishes, button#random {
 #question-holder h2 {
 	margin: 0;
 }
-/*#holder {
-	position: relative;
-}*/
-/*#temporary {
-	position: absolute;
-	left: 0
-	top 10;
-}*/
 @media (max-width: 600px) {
   button#topDishes, button#random {
 		padding: 5px;
 	  font-size: 16px;
 	}
-	.option h2 {
+	.option h2, #msg h2 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 30px;
 	color: white;
+	text-shadow: 1px 1px #333
 	}
 }
-/*@media (max-width: 780px) {
-	#guru {
-		height: 100px;
-	}
-
-}*/

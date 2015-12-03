@@ -5,6 +5,7 @@ var ReviewSchema = new Schema({
 				business: String,
 				thought: String,
 				dateVisited: String,
+				written: Boolean,
 				author: {
 					type: Schema.Types.ObjectId,
 					ref: "User"

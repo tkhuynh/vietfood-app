@@ -222,6 +222,7 @@ app.put("/api/reviews/:id", function(req, res) {
 					foundReview.business = req.body.business;
 					foundReview.dateVisited = req.body.dateVisited;
 					foundReview.thought = req.body.thought;
+					foundReview.written = req.body.written;
 					foundReview.save(function(err, editedReview) {
 						res.json(editedReview);
 						req.user.save();
@@ -237,7 +238,7 @@ app.post("/api/reviews", function(req, res) {
 	if (req.user) {
 		var newReview = new Review(req.body);
 		newReview.author = req.user._id;
-		newReview.dateVisited = (new Date()).toDateString();
+		// newReview.dateVisited = (new Date()).toDateString();
 		newReview.save(function(err, savedReview) {
 			if (err) {
 				res.status(500).json({

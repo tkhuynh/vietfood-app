@@ -95,7 +95,7 @@ $(function() {
 	var template2 = Handlebars.compile(source2);
 
 	function hidden() {
-		$("#map").hide();
+		$("#result").hide();
 		$("#foodDescription").empty();
 		$("#restaurantList").empty();
 	}
@@ -124,7 +124,6 @@ $(function() {
 	$("#picsHolder1, #picsHolder2").on("click", "img", function(event) {
 		event.preventDefault();
 		$("#goBack-holder").html("<span class='goBack'>X</span>");
-		// hidden();
 		var picsHolder = $(this).parent().parent().parent();
 		var keyword = $(this).attr("id").replace(/_/g, " ");
 		var dish = keyword.replace(/\s/g, "");
@@ -160,7 +159,6 @@ $(function() {
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
 		$(".goBack2").click(function() {
-			$("#goBack-holder").empty();
 			$("#lower1, #lower2").show();
 			hidden();
 			$("html, body").animate({
@@ -191,20 +189,6 @@ $(function() {
 		});
 	}
 
-	//make question-holder div reponsive
-	var setHeight = $(window).height() - 160;
-	var imageHeight = parseInt($("#guru").css("height"));
-	var originalWindowHeight = $(window).height();
-	console.log(imageHeight);
-	$("#question-holder").css("height", setHeight);
-	$(window).resize(function(){
-		setHeight = $(window).height() - 160;
-		var percentage = setHeight / originalWindowHeight;
-		var newImageHeight = Math.floor(imageHeight * percentage);
-		console.log(newImageHeight);
-		$("#question-holder").css("height", setHeight);
-		$("#guru").css("height", newImageHeight);
-	});
 	//Favorite Options Chosen
 	$("body").on("click", "#favorite", function() {
 		hidden();
@@ -277,19 +261,26 @@ $(function() {
 
 	// $(".backToMainPage").on("click", function() {
 	// 	$("#answerMe").hide();
-	// 	$("#options1_2").slideToggle("slow");
+	// 	$("#lower1, #lower2").slideToggle("slow");
 	// });
 
 	//save name in of restaurant user chose to go in review database
-	$("#restaurantList").on("click", ".btn", function(event) {
+	$("#restaurantList").on("click", ".chosen", function(event) {
 		event.preventDefault();
 		var name = $(this).attr("id");
-		console.log(name);
 		var reviewNeedToBeWritten = {
 			business: name,
 			thought: "Review for this visit has not been posted yet.",
+			written: false,
 			dateVisited: (new Date()).toDateString()
 		};
-		$.post("/api/reviews", reviewNeedToBeWritten, function(data) {});
+		$.post("/api/reviews", reviewNeedToBeWritten);
+		hidden();
+		$("#panel").hide();
+		$("#reminder").slideToggle();
+		$("body").on("click", ".ok", function () {
+			$("#reminder").hide();
+			$("#lower1, #lower2").show();
+		});
 	});
 });

@@ -26,7 +26,9 @@
 								<h4><i>\{{author.username}} visisted here on \{{dateVisited}}</i></h4>
 							</div>
 							<div class="col-sm-7">
+								\{{#if written}}
 								<h4>\{{thought}}</h4>
+								\{{/if}}
 							</div>
 						</div>
 					\{{/each}}

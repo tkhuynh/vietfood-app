@@ -32,9 +32,10 @@
 									<span class="glyphicon glyphicon-edit glyphicon-align-left" aria-hidden="true"></span>
 								</button>
 								<form id="edit-form" hidden>
+									<input type="hidden" name="written" class="form-control" value="true" style="height: 50px">
 									<input type="hidden" name="business" class="form-control" value="{{business}}" style="height: 50px">
 									<input type="hidden" name="dateVisited" class="form-control" value="{{dateVisited}}" style="height: 50px">
-									<input type="text" name="thought" class="form-control" style="height: 50px" placeholder="Please write your review">
+									<input type="text" name="thought" class="form-control" style="height: 50px" placeholder="Please write your review" required>
 									<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Edit</button>
 								</form>
 							</div>
