@@ -1,7 +1,6 @@
 body {
 	height: 100%;
 	width: 100%;
-	background-size: cover;
 }
 .row {
 	margin: 0;
@@ -9,29 +8,17 @@ body {
 .container-fluid {
 	padding: 0;
 }
-/*.navbar-inverse .navbar-toggle {
-	border: 1px solid white;
-}
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-	border: none;
-}*/
+
 .navbar-inverse{
-	/*border: none;*/
 	border-radius: 0px;
-	/*background: rgba(226, 112, 7, 0.8);*/
-	/*height: 75px;*/
 	margin-bottom: 0;
-	/*z-isndex: 1;*/
 }
 .navbar-inverse .navbar-nav>li>a {
 	font-size: 20px;
-	/*padding-top: 30px;*/
-	/*color: white;*/
 }
 .navbar-inverse .navbar-brand {
 	font-family: 'Knewave', cursive;
 	font-size: 36px;
-	/*padding-top: 30px;*/
 	color: white;
 }
 .navbar>.container-fluid .navbar-brand {
@@ -72,10 +59,10 @@ button#topDishes, button#random {
 	margin-top: 15px;
 }
 
-span.topOption, span.topOption2, span.goBack, span.goBack2 {
+/*span.topOption, span.topOption2, span.goBack, span.goBack2, span.goBack3 {
 	float: right;
 	margin: 10px 0px 10px 0px;
-}
+}*/
 #lower1, #lower2 {
 	padding: 0;
 }
@@ -83,11 +70,13 @@ span.topOption, span.topOption2, span.goBack, span.goBack2 {
 	position: relative;
 	margin: 15px 0px 15px 0px;
 }
-#picsHolder1 img, #picsHolder1 span, #picsHolder2 img, #picsHolder2s span, span.goBack,span.goBack2 , span.topOption2 {
+#picsHolder1 img, #picsHolder2 img, #options1_2 span, #goBack-holder span, #answerMe span {
 	cursor: pointer;
 }
-#picsHolder1 span, #picsHolder2s span, span.goBack, span.goBack2, span.topOption2 {
+#options1_2 span, #goBack-holder span, #answerMe span {
 	color: #A9A9A9;
+	float: right;
+	margin: 10px 0px 10px 0px;
 }
 .next, .back {
   border: none;
@@ -109,21 +98,33 @@ span.topOption, span.topOption2, span.goBack, span.goBack2 {
 	width: 100%;
 	height: 500px;
 }
-.dropdown-menu li {
-	width: 350px;
+#result, #restaurantList, #answerMe {
+	background-color: #F1F2F2;
+}
+#restaurantList h4, #restaurantList p {
+	padding-left: 15px;
 }
 #question-holder {
-	height: 300px;
+	position: relative;
+	/*height: 600px;*/
 	width: 100%;
 	background-color: lightblue;
+	margin-bottom: 40px;
+}
+#answerMe {
+	margin-top: 20px;
 }
 #question-holder h2 {
 	margin: 0;
 }
-#restaurantList p {
-	padding: 0;
-	margin: 0;
-}
+/*#holder {
+	position: relative;
+}*/
+/*#temporary {
+	position: absolute;
+	left: 0
+	top 10;
+}*/
 @media (max-width: 600px) {
   button#topDishes, button#random {
 		padding: 5px;
@@ -133,5 +134,11 @@ span.topOption, span.topOption2, span.goBack, span.goBack2 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 30px;
 	color: white;
+	}
 }
-}
+/*@media (max-width: 780px) {
+	#guru {
+		height: 100px;
+	}
+
+}*/

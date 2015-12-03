@@ -184,12 +184,29 @@ $(function() {
 		keyword = category[random].toLowerCase();
 		var dish = keyword.replace(/\s/g, "");
 		$(".find").click(function() {
+			//add goBack button to result
+			$("#goBack-holder").html("<span class='goBack3'>X</span>");
 			restaurantsSellThisDish(dish, keyword);
 			$("#result").show();
 		});
 	}
+
+	//make question-holder div reponsive
+	var setHeight = $(window).height() - 160;
+	var imageHeight = parseInt($("#guru").css("height"));
+	var originalWindowHeight = $(window).height();
+	console.log(imageHeight);
+	$("#question-holder").css("height", setHeight);
+	$(window).resize(function(){
+		setHeight = $(window).height() - 160;
+		var percentage = setHeight / originalWindowHeight;
+		var newImageHeight = Math.floor(imageHeight * percentage);
+		console.log(newImageHeight);
+		$("#question-holder").css("height", setHeight);
+		$("#guru").css("height", newImageHeight);
+	});
 	//Favorite Options Chosen
-	$("#favorite").click(function() {
+	$("body").on("click", "#favorite", function() {
 		hidden();
 		$("#question-holder").empty();
 		$("#commonDishes").hide();
@@ -197,13 +214,13 @@ $(function() {
 		$("#clickAnswer").on("click", function() {
 			//clear all questions first
 			$("#question-holder").empty();
-			questionMaker("Are You Really Hungry?", "Yes", "No");
+			setTimeout(questionMaker("Are You Really Hungry?", "Yes", "No"), 2000);
 			$(".left").click(function() {
 				$(this).parent().remove();
-				questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
+				setTimeout(questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup"), 2000);
 				$(".left").click(function() {
 					$(this).parent().remove();
-					questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle");
+					setTimeout(questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle"), 2000);
 					//case 1
 					$(".left").click(function() {
 						$(this).parent().remove();
@@ -217,7 +234,7 @@ $(function() {
 				});
 				$(".right").click(function() {
 					$(this).parent().remove();
-					questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy");
+					setTimeout(questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy"), 2000);
 					//case 3
 					$(".left").click(function() {
 						$(this).parent().remove();
@@ -232,7 +249,7 @@ $(function() {
 			});
 			$(".right").click(function() {
 				$(this).parent().remove();
-				questionMaker("Do You Just Like Apertizer or Sandwich?", "Apertizer", "Sandwich");
+				setTimeout(questionMaker("Do You Just Like Apertizer or Sandwich?", "Apertizer", "Sandwich"), 2000);
 				//case 5
 				$(".left").click(function() {
 					$(this).parent().remove();
@@ -247,7 +264,21 @@ $(function() {
 				});
 			});
 		});
+		$("body").on("click", ".goBack3", function() {
+			$(this).remove();
+			console.log("click");
+			$("answerMe").show();
+			hidden();
+			$("#question-holder").empty();
+			$("#commonDishes").hide();
+			$("#answerMe").show();
+		});
 	});
+
+	// $(".backToMainPage").on("click", function() {
+	// 	$("#answerMe").hide();
+	// 	$("#options1_2").slideToggle("slow");
+	// });
 
 	//save name in of restaurant user chose to go in review database
 	$("#restaurantList").on("click", ".btn", function(event) {

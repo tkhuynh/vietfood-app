@@ -39,7 +39,7 @@
       	</div>
     	</div> 
 			
-			<div class="container-fluid">
+			<div class="container-fluid" id="options1_2" hidden>
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1 text-center" id="panel" hidden>
 						<div id="picsHolder1">
@@ -144,7 +144,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 
 			<div class="container optionButtons" hidden>
@@ -187,10 +186,10 @@
 			</div>
 
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row" id="restaurantList">
 					<div class="col-sm-10 col-sm-offset-1">
 						<div class="row">
-							<div id="restaurantList">
+							<!-- <div id="restaurantList"> -->
 								<script id="restaurant-template" type="text/x-handlebars-template">
 									{{#if user}}
 										<div class="col-sm-6">
@@ -234,16 +233,22 @@
 										</div>
 									{{/if}}
 								</script>
-							</div>
+							<!-- </div> -->
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="container" id="answerMe" hidden>
+			<div class="container" id="answerMe">
 				<div class="row">
+						<div class="col-sm-12">
+							<span class='backToMainPage'>X</span>
+						</div>
+					</div>
+				<div class="row" id="tempo">
 					<div class="col-sm-4 text-center">
-						<img src="guru.png" class="img-responsive">
+					<button type="button" class="btn btn-danger" id="favorite">Click</button>
+						<img src="guru.png" class="img-responsive" id="guru">
 						<button type="button" class="btn btn-danger" id="clickAnswer">Click to Answer</button>
 					</div>
 

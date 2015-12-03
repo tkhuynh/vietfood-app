@@ -4,6 +4,11 @@ body {
 	background: url("http://messiz.mobi/wp-content/uploads/indian-food-backgrounds-images-12.jpg");
 	background-size: cover;
 }
+label.error {
+	font-size: 15px;
+  color: red;
+  font-style: italic;
+}
 .navbar-inverse{
 	border-radius: 0px;
 }
