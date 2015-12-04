@@ -164,7 +164,6 @@ $(function() {
 			$("body").on("click", ".ok", function() {
 				$("#reminder").hide();
 				$("#lower1, #lower2, #lower3").show();
-				// hidden();
 			});
 		});
 
@@ -182,7 +181,7 @@ $(function() {
 		$("#goBack-holder").html("<span class='goBack2'>X</span>");
 		$("#lower1, #lower2, #lower3").hide();
 		$("#answerMe").hide();
-		$("#result, .goBack2").show();
+		$("#result").show();
 		var random = randomNum(commonDishes);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
@@ -209,14 +208,14 @@ $(function() {
 			};
 			//save review to database
 			$.post("/api/reviews", reviewNeedToBeWritten);
-			$(".goBack2").hide();
+			$(".goBack2").remove();
 			$("#reminder").show();
 			$("html, body").animate({
 				scrollTop: 0
 			});
 			$("body").on("click", ".ok", function() {
 				$("#reminder").hide();
-				$("#lower1, #lower2").show();
+				$("#lower1, #lower2, #lower3").show();
 				hidden();
 			});
 		});
@@ -235,7 +234,6 @@ $(function() {
 
 	//helper function 
 	function guruChoice(message, category) {
-		// $(".guru-result").empty();
 		var random = randomNum(category);
 		$("#question-holder").append("<div class='guru-result'</div>");
 		$(".guru-result").append("<h2>" + message + "<br>" + category[random] + "</h2>")
@@ -256,12 +254,9 @@ $(function() {
 		$("#options1_2").hide();
 		$("#question-holder").empty();
 		$("#question-holder").hide();
-		// $("#lower1, #lower2, #lower3").hide();
 		hidden();
-		// $("#question-holder").empty();
 		$(".close").append("<span class='backToMainPage'>X</span>");
 		$("#answerMe").show();
-		//clear all questions first
 
 		$("#question-holder").show();
 		questionMaker("Are You Really Hungry?", "Yes", "No");
@@ -311,16 +306,45 @@ $(function() {
 				guruChoice("I Think You Should Try", non_apertizer);
 			});
 		});
+		$("body").on("click", ".backToMainPage", function() {
+			$(this).remove();
+			$("#answerMe").hide();
+			$("#options1_2").show();
+		});
+		$("body").on("click", ".goBack3", function() {
+			$(this).remove();
+			$(".backToMainPage").remove();
+			hidden();
+			$("#options1_2").show();
+		});
+		$("#restaurantList").on("click", ".chosen", function(event) {
+			hidden();
+			event.preventDefault();
+			var name = $(this).attr("id");
+			var address1 = $(this).next().text();
+			var address2 = $(this).next().next().text();
+			var reviewNeedToBeWritten = {
+				business: name,
+				address1: address1,
+				address2: address2,
+				thought: "Review for this visit has not been posted yet.",
+				written: false,
+				dateVisited: (new Date()).toDateString()
+			};
+			//save review to database
+			$.post("/api/reviews", reviewNeedToBeWritten);
+			$(".goBack3").remove();
+			$("#reminder").show();
+			$("html, body").animate({
+				scrollTop: 0
+			});
+			$("body").on("click", ".ok", function() {
+				console.log("me");
+				$("#reminder").hide();
+				$("#options1_2").show();
+				hidden();
+			});
+		});
 	});
-	$("body").on("click", ".backToMainPage", function () {
-		$(this).remove();
-		hidden();
-		$("#options1_2").slideToggle();
-	});
-	$("body").on("click", ".goBack3", function() {
-		$(this).remove();
-		hidden();
-		$("#options1_2").slideToggle();
-	});
-
+	
 });

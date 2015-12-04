@@ -126,7 +126,6 @@
 		
 		
 		
-		<!-- <div id="result" hidden> -->
 		<div class="container-fluid" id="result" hidden>
 			<div class="row">
 				<div class="col-sm-12" id="goBack-holder">
@@ -155,47 +154,46 @@
 						<script id="restaurant-template" type="text/x-handlebars-template">
 							{{#if user}}
 								<div class="col-sm-6">
-												\{{#each lefts}}
-													<h4>\{{name}}</h4>
-													<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
-													<p>\{{location.display_address.[0]}}</p>
-													<p>\{{location.display_address.[2]}}</p>
-													<p>Tel: \{{display_phone}}</p>
-													<hr>
-												\{{/each}}
+													\{{#each lefts}}
+														<h4>\{{name}}</h4>
+														<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
+														<p>\{{location.display_address.[0]}}</p>
+														<p>\{{location.display_address.[2]}}</p>
+														<p>Tel: \{{display_phone}}</p>
+														<hr>
+													\{{/each}}
 								</div>
 								<div class="col-sm-6">
-													\{{#each rights}}
-													<h4>\{{name}}</h4>
-													<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
-													<p>\{{location.display_address.[0]}}</p>
-													<p>\{{location.display_address.[2]}}</p>
-													<p>Tel: \{{display_phone}}</p>
-													<hr>
-												\{{/each}}
+														\{{#each rights}}
+														<h4>\{{name}}</h4>
+														<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
+														<p>\{{location.display_address.[0]}}</p>
+														<p>\{{location.display_address.[2]}}</p>
+														<p>Tel: \{{display_phone}}</p>
+														<hr>
+													\{{/each}}
 								</div>
 							{{else}}
 								<div class="col-sm-6">
-												\{{#each lefts}}
-													<h4>\{{name}}</h4>
-													<p>\{{location.display_address.[0]}}</p>
-													<p>\{{location.display_address.[2]}}</p>
-													<p>Tel: \{{display_phone}}</p>
-													<hr>
-												\{{/each}}
+													\{{#each lefts}}
+														<h4>\{{name}}</h4>
+														<p>\{{location.display_address.[0]}}</p>
+														<p>\{{location.display_address.[2]}}</p>
+														<p>Tel: \{{display_phone}}</p>
+														<hr>
+													\{{/each}}
 								</div>
 								<div class="col-sm-6">
-													\{{#each rights}}
-													<h4>\{{name}}</h4>
-													<p>\{{location.display_address.[0]}}</p>
-													<p>\{{location.display_address.[2]}}</p>
-													<p>Tel: \{{display_phone}}</p>
-													<hr>
-												\{{/each}}
+														\{{#each rights}}
+														<h4>\{{name}}</h4>
+														<p>\{{location.display_address.[0]}}</p>
+														<p>\{{location.display_address.[2]}}</p>
+														<p>Tel: \{{display_phone}}</p>
+														<hr>
+													\{{/each}}
 								</div>
 							{{/if}}
 						</script>
-						<!-- </div> -->
 					</div>
 				</div>
 			</div>
@@ -215,18 +213,12 @@
 		<div class="container" id="answerMe" hidden>
 			<div class="row">
 				<div class="col-sm-12 close">
-					<!-- <span class='backToMainPage'>X</span> -->
+					<!-- X close will be append here -->
 				</div>
 			</div>
-			<!-- <div class="col-sm-4 text-center"> -->
-			<!-- <div class="text-center">
-				<button type="button" class="btn btn-danger" id="clickAnswer">Click to Answer</button>
-			</div> -->
-			<!-- </div> -->
-			<!-- <div class="col-sm-8"> -->
 			<div class="text-center" id="question-holder" hidden>
+				<!-- questions will be append here -->
 			</div>
-			<!-- </div> -->
 		</div>
 		<!-- jquery -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
