@@ -1,11 +1,19 @@
 body {
 	height: 100%;
 	width: 100%;
-	background: url("https://northcountyfood.files.wordpress.com/2013/09/website-background.jpg");
+	background: url("http://www.hivietnam.net/vi/docs/2013/04/Banh-my-Viet-lam-mua-lam-gio-tai-My_10.jpg");
 	background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+.header {
+	margin-top: 10px;
+	background: rgba(237, 237, 237, 0.5);
 }
 #visitedPlace-list {
-	background: rgba(237, 237, 237, 0.9);
+	background: rgba(237, 237, 237, 0.5);
 	margin-top: 20px;
 }
 h1 {
@@ -15,6 +23,10 @@ h1 {
 #visitedPlace-list h3 {
 	font-size: 28px;
 	font-family: 'Lemon', cursive;
+}
+h3.reviews {
+	font-size: 22px;
+	font-family: 'Merriweather', serif;
 }
 #visitedPlace-list h4 {
 	margin: 0;

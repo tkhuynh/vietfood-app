@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		{{> navbar}}
-		<div class="container text-center">
+		<div class="container text-center header">
 			<h1>Hello, {{user.username}}!</h1>
 		</div>
 		<div class="container" id="visitedPlace-list">
@@ -51,7 +51,7 @@
 					<hr>
 				{{/each}}
 			{{else}}
-				<h3 class="text-center">You haven't went to any recommended restaurant.</h3>
+				<h3 class="text-center reviews">You haven't went to any recommended restaurant.</h3>
 			{{/if}}
 		</div>
 

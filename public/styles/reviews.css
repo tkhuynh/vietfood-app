@@ -3,6 +3,9 @@ body {
 	width: 100%;
 	background: url("http://cookdiary.net/wp-content/uploads/images/Cha-Gio_982.png");
 	background-size: cover;
+	background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
 }
 .header {
 	margin-top: 10px;
@@ -26,7 +29,7 @@ h1 {
 	margin: 0;
 }
 h4.reviews {
-	font-size: 28px;
+	font-size: 22px;
 	font-family: 'Merriweather', serif;
 }
 #review-list p {

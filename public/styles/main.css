@@ -133,7 +133,12 @@ button#topDishes, button#random, button#favorite, button.left, button.right, but
 #answerMe {
 	margin-top: 20px;
 }
-.question, .guru-result {
+.question {
+	width: 100%;
+	position: absolute;
+	top: 20%;
+}
+.guru-result {
 	position: absolute;
 	top: 20%;
 	left: 30%;

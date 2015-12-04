@@ -151,7 +151,7 @@ $(function() {
 				business: name,
 				address1: address1,
 				address2: address2,
-				thought: "Review for this visit has not been posted yet.",
+				thought: "Please write a review for your last visit.",
 				written: false,
 				dateVisited: (new Date()).toDateString()
 			};
@@ -202,7 +202,7 @@ $(function() {
 				business: name,
 				address1: address1,
 				address2: address2,
-				thought: "Review for this visit has not been posted yet.",
+				thought: "Please write a review for your last visit.",
 				written: false,
 				dateVisited: (new Date()).toDateString()
 			};
@@ -225,7 +225,7 @@ $(function() {
 	//function helper 
 	function questionMaker(question, answer1, answer2) {
 		$("#question-holder").empty();
-		$("#question-holder").append("<div class='question'></div>");
+		$("#question-holder").append("<div class='question text-center'></div>");
 		$(".question").append("<img src='/images/guru.png' class='img-responsive guru-question'>")
 			.append("<h2>" + question + "</h2>")
 			.append("<button type='button' class='btn btn-danger left'>" + answer1 + "</button>")
@@ -327,7 +327,7 @@ $(function() {
 				business: name,
 				address1: address1,
 				address2: address2,
-				thought: "Review for this visit has not been posted yet.",
+				thought: "Please write a review for your last visit.",
 				written: false,
 				dateVisited: (new Date()).toDateString()
 			};
