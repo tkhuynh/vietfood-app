@@ -7,8 +7,9 @@
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
-		<link type="text/css" rel="stylesheet" href="main.css">
-		<link type="text/css" rel="stylesheet" href="reviews.css">
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet' type='text/css'>
+		<link type="text/css" rel="stylesheet" href="/styles/main.css">
+		<link type="text/css" rel="stylesheet" href="/styles/reviews.css">
 
 		<title>Reviews</title>
 	</head>
@@ -20,24 +21,26 @@
 		<div class="container" id="review-list">
 			<script id="review-template" type="text/x-handlebars-template">
 				\{{#each reviews}}
-					<div class="row">
-						<div class="col-sm-12">
-							<h3>\{{business}}</h3>
-							<h4>\{{address1}}</h4>
-							<h4>\{{address2}}</h4>
+						<div class="review_holder">
+						<div class="row">
+							<div class="col-sm-12">
+								<h3>\{{business}}</h3>
+								<h4>\{{address1}}</h4>
+								<h4>\{{address2}}</h4>
+							</div>
 						</div>
+						<div class="row">
+							<div class="col-sm-4">
+								<p><i>\{{author.username}} visisted here on \{{dateVisited}}</i></p>
+							</div>
+							<div class="col-sm-8">
+								\{{#if written}}
+								<h4 class="reviews">\{{thought}}</h4>
+								\{{/if}}
+							</div>
+						</div>
+						<hr>
 					</div>
-					<div class="row">
-						<div class="col-sm-4">
-							<p><i>\{{author.username}} visisted here on \{{dateVisited}}</i></p>
-						</div>
-						<div class="col-sm-8">
-							\{{#if written}}
-							<h4>\{{thought}}</h4>
-							\{{/if}}
-						</div>
-					</div>
-					<hr>
 				\{{/each}}
 			</script>
 		</div>
@@ -55,6 +58,6 @@
 	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
 
 	  <!-- custom script -->
-	  <script type="text/javascript" src="allreviews.js"></script>
+	  <script type="text/javascript" src="/scripts/allreviews.js"></script>
 	</body>
 </html>
