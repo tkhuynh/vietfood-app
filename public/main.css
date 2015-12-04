@@ -2,6 +2,10 @@ body {
 	height: 100%;
 	width: 100%;
 }
+/* Boostrap row has min-height: 1px; */
+#foodDescription, #result, .map-holder, #goBack-holder, #description_map {
+	min-height: 0;
+}
 .row {
 	margin: 0;
 }
@@ -24,10 +28,10 @@ body {
 .navbar>.container-fluid .navbar-brand {
   margin-left: 15px;
 }
-#papayaSalad-img, #summerRoll-img {
+#papayaSalad-img, #summerRoll-img, #pho-img {
 	position: relative;
 }
-button#topDishes, button#random {
+button#topDishes, button#random, button#favorite, button.left, button.right, button.find {
 	padding: 10px;
   font-size: 26px;
 }
@@ -60,17 +64,17 @@ button#topDishes, button#random {
 	margin-top: 15px;
 }
 
-#lower1, #lower2, #reminder {
+#lower1, #lower2, #lower3, #reminder {
 	padding: 0;
 }
 #picsHolder1, #picsolder2 {
 	position: relative;
 	margin: 15px 0px 15px 0px;
 }
-#picsHolder1 img, #picsHolder2 img, #options1_2 span, #goBack-holder span, #answerMe span {
+#picsHolder1 img, #picsHolder2 img, #options1_2 span, #goBack-holder span, .close span {
 	cursor: pointer;
 }
-#options1_2 span, #goBack-holder span, #answerMe span {
+#options1_2 span, #goBack-holder span, .close span {
 	color: #A9A9A9;
 	float: right;
 	margin: 10px 0px 10px 0px;
@@ -113,21 +117,30 @@ button#topDishes, button#random {
 	color: white;
 	text-shadow: 1px 1px #333
 }
+.guru-question {
+	margin: 0 auto;
+}
+#guru, .guru-question {
+	height: 100px;
+}
 #question-holder {
 	position: relative;
-	height: 500px;
+	height: 400px;
 	width: 100%;
 	background-color: lightblue;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 }
 #answerMe {
 	margin-top: 20px;
 }
-#question-holder h2 {
-	margin: 0;
+.question, .guru-result {
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	right: 30%;
 }
 @media (max-width: 600px) {
-  button#topDishes, button#random {
+  button#topDishes, button#random, button#favorite {
 		padding: 5px;
 	  font-size: 16px;
 	}

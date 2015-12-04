@@ -6,34 +6,40 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="main.css">
+		<link type="text/css" rel="stylesheet" href="reviews.css">
 
 		<title>Reviews</title>
 	</head>
 	<body>
 		{{> navbar}}
-		<div class="container">
-			<div id="review-list">
-				<script id="review-template" type="text/x-handlebars-template">
-					\{{#each reviews}}
-						<div class="row">
-							<div class="col-sm-12">
-								<h3>\{{business}}</h3>
-							</div>
+		<div class="container text-center header">
+			<h1><b>Places Our Members Went</b></h1>
+		</div>
+		<div class="container" id="review-list">
+			<script id="review-template" type="text/x-handlebars-template">
+				\{{#each reviews}}
+					<div class="row">
+						<div class="col-sm-12">
+							<h3>\{{business}}</h3>
+							<h4>\{{address1}}</h4>
+							<h4>\{{address2}}</h4>
 						</div>
-						<div class="row">
-							<div class="col-sm-5">
-								<h4><i>\{{author.username}} visisted here on \{{dateVisited}}</i></h4>
-							</div>
-							<div class="col-sm-7">
-								\{{#if written}}
-								<h4>\{{thought}}</h4>
-								\{{/if}}
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p><i>\{{author.username}} visisted here on \{{dateVisited}}</i></p>
 						</div>
-					\{{/each}}
-				</script>
-			</div>
+						<div class="col-sm-8">
+							\{{#if written}}
+							<h4>\{{thought}}</h4>
+							\{{/if}}
+						</div>
+					</div>
+					<hr>
+				\{{/each}}
+			</script>
 		</div>
 
 		<!-- jquery -->

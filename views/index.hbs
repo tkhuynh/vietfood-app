@@ -3,155 +3,158 @@
 	<head>
 		<meta charset="UTF-8">
 		<!-- set viewport to device width to make site responsive -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="main.css">
-
 		<title>Document</title>
 	</head>
 	<body>
-			{{> navbar}}
-			
-			<div class="container-fluid" id="options1_2">
-				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1 text-center" id="panel" hidden>
-						<div id="picsHolder1">
-							<div class="row">
-								<div class="col-sm-12">
-									<span class="topOption">X</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-4">
-									<img src="http://a9.vietbao.vn/images/vn999/130/2014/11/20141126-10-loai-nhan-banh-mi-yeu-thich-cua-nguoi-sai-gon-8.jpg" id="banh_mi" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-4">
-									<img src="http://www.meatlovessalt.com/wp-content/uploads/2013/04/IMG_8958_630.jpg" alt="" class="img-responsive" id="pho">
-								</div>
-								<div class="col-sm-4">
-									<img src="http://bunthitnuonganhba.vn/uploads/images/21.bunthitnuong.jpg" alt="" class="img-responsive" id="bun_thit_nuong">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<img src="http://2.bp.blogspot.com/-qQcA8EUnxgs/Us4-zPqKNrI/AAAAAAAAAf4/1AGalm-AkBE/s1600/_MG_8350-2.jpg" id="banh_xeo" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://foodforfour.com/wp-content/uploads/2010/02/Bo-Kho.jpg" id="bo_kho" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://farm4.static.flickr.com/3486/3800220934_9d53d52644_o.jpg" id="bo_luc_lac" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://asia-recipes.com/wp-content/uploads/2015/03/Recipe-for-delicious-Hue-noodle-soup3.jpg" id="bun_bo_hue" alt="" class="img-responsive">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<button type="button" class="next">More</button>
-								</div>
-							</div>
-						</div>
-
-						<div id="picsHolder2" hidden>
-							<div class="row">
-								<div class="col-sm-12">
-									<span class="topOption2">X</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<img src="http://chuyengiaamthuc.com/wp-content/uploads/2015/06/cach-nau-bun-rieu-cua-15.jpg" id="bun_rieu" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://d1v827hezncazj.cloudfront.net/wp-content/uploads/egg-rolls-final.jpg" id="cha_gio" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://www.thedeliciouslife.com/wp-content/uploads/2012/12/nong-la-cafe-vietnamese-summer-roll.jpg" alt="" class="img-responsive" id="goi_cuon">
-								</div>
-								<div class="col-sm-3">
-									<img src="https://cdn.menu.me/image-assets/152/52942/image.jpg" alt="" class="img-responsive" id="goi_du_du">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<img src="http://kinhdoanhnhahang.vn/wp-content/uploads/2014/12/lap-ke-hoach-mo-quan-hu-tieu-nam-vang-1.jpg" id="hu_tieu_nam_vang" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://a9.vietbao.vn/images/vn905/Am_Thuc/50916343_cam-tam-2.jpg" id="com_tam_bi_suon_cha" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="http://dabblemag.com/wp-content/uploads/2014/01/Vietnam.jpg" id="cafe_sua_da" alt="" class="img-responsive">
-								</div>
-								<div class="col-sm-3">
-									<img src="https://s-media-cache-ak0.pinimg.com/736x/59/55/ff/5955ffb578122bd6065e3836f231e538.jpg" id="che_ba_mau" alt="" class="img-responsive">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<button type="button" class="back" style="margin-bottom: 15px">Back</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-12 text-center" style="height: 100%" id="lower1">
-						<img src="http://kylieandpatrick.com/wp-content/uploads/2013/09/papaya-salad-2.jpg" class="img-responsive" id="papayaSalad-img">
-						<div class="text-center option">
-							<h2>15 Best Vietnamese Dishes</h2>
-							<button type="button" class="btn btn-danger topOption" id="topDishes">Top Dishes</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-12 text-center" style="height: 100%" id="lower2">
-						<img src="http://www.spadespatula.com/wp-content/uploads/2011/08/summerroll.jpg" class="img-responsive" id="summerRoll-img">
-						<div class="text-center option">
-							<h2>Are You Still Deciding?</h2>
-							<button type="button" class="btn btn-danger" id="random">Click Me</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="result" hidden>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-12" id="goBack-holder">
-							<!-- x close button will be set from js -->
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div id="foodDescription">
-								<script id="description-template" type="text/x-handlebars-template">
-									<h3>\{{dish.name}} - \{{dish.english}}</h3>
-									<img src="\{{dish.image}}" class="img-responsive" style="width: 400px">
-									<br>
-									<p>\{{dish.description}} <i>(\{{dish.source}})</i></p>
-								</script>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div id="map"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container-fluid">
-				<div class="row" id="restaurantList">
-					<div class="col-sm-10 col-sm-offset-1">
+		{{> navbar}}
+		
+		<div class="container-fluid" id="options1_2">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 text-center" id="panel" hidden>
+					<div id="picsHolder1">
 						<div class="row">
-							<!-- <div id="restaurantList"> -->
-								<script id="restaurant-template" type="text/x-handlebars-template">
-									{{#if user}}
-										<div class="col-sm-6">
+							<div class="col-sm-12">
+								<span class="topOption">X</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="http://a9.vietbao.vn/images/vn999/130/2014/11/20141126-10-loai-nhan-banh-mi-yeu-thich-cua-nguoi-sai-gon-8.jpg" id="banh_mi" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-4">
+								<img src="http://www.meatlovessalt.com/wp-content/uploads/2013/04/IMG_8958_630.jpg" alt="" class="img-responsive" id="pho">
+							</div>
+							<div class="col-sm-4">
+								<img src="http://bunthitnuonganhba.vn/uploads/images/21.bunthitnuong.jpg" alt="" class="img-responsive" id="bun_thit_nuong">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3">
+								<img src="http://2.bp.blogspot.com/-qQcA8EUnxgs/Us4-zPqKNrI/AAAAAAAAAf4/1AGalm-AkBE/s1600/_MG_8350-2.jpg" id="banh_xeo" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://foodforfour.com/wp-content/uploads/2010/02/Bo-Kho.jpg" id="bo_kho" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://farm4.static.flickr.com/3486/3800220934_9d53d52644_o.jpg" id="bo_luc_lac" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://asia-recipes.com/wp-content/uploads/2015/03/Recipe-for-delicious-Hue-noodle-soup3.jpg" id="bun_bo_hue" alt="" class="img-responsive">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<button type="button" class="next">More</button>
+							</div>
+						</div>
+					</div>
+					<div id="picsHolder2" hidden>
+						<div class="row">
+							<div class="col-sm-12">
+								<span class="topOption2">X</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3">
+								<img src="http://chuyengiaamthuc.com/wp-content/uploads/2015/06/cach-nau-bun-rieu-cua-15.jpg" id="bun_rieu" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://d1v827hezncazj.cloudfront.net/wp-content/uploads/egg-rolls-final.jpg" id="cha_gio" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://www.thedeliciouslife.com/wp-content/uploads/2012/12/nong-la-cafe-vietnamese-summer-roll.jpg" alt="" class="img-responsive" id="goi_cuon">
+							</div>
+							<div class="col-sm-3">
+								<img src="https://cdn.menu.me/image-assets/152/52942/image.jpg" alt="" class="img-responsive" id="goi_du_du">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3">
+								<img src="http://kinhdoanhnhahang.vn/wp-content/uploads/2014/12/lap-ke-hoach-mo-quan-hu-tieu-nam-vang-1.jpg" id="hu_tieu_nam_vang" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://a9.vietbao.vn/images/vn905/Am_Thuc/50916343_cam-tam-2.jpg" id="com_tam_bi_suon_cha" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="http://dabblemag.com/wp-content/uploads/2014/01/Vietnam.jpg" id="cafe_sua_da" alt="" class="img-responsive">
+							</div>
+							<div class="col-sm-3">
+								<img src="https://s-media-cache-ak0.pinimg.com/736x/59/55/ff/5955ffb578122bd6065e3836f231e538.jpg" id="che_ba_mau" alt="" class="img-responsive">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<button type="button" class="back" style="margin-bottom: 15px">Back</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center" style="height: 100%" id="lower1">
+					<img src="http://kylieandpatrick.com/wp-content/uploads/2013/09/papaya-salad-2.jpg" class="img-responsive" id="papayaSalad-img">
+					<div class="text-center option">
+						<h2>15 Best Vietnamese Dishes</h2>
+						<button type="button" class="btn btn-danger topOption" id="topDishes">Top Dishes</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center" style="height: 100%" id="lower2">
+					<img src="http://www.spadespatula.com/wp-content/uploads/2011/08/summerroll.jpg" class="img-responsive" id="summerRoll-img">
+					<div class="text-center option">
+						<h2>Are You Still Deciding?</h2>
+						<button type="button" class="btn btn-danger" id="random">Click Me</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center" style="height: 100%" id="lower3">
+					<img src="http://blog.delivery.com/wp-content/uploads/2014/10/viet-1.jpg" class="img-responsive" id="pho-img">
+					<div class="text-center option">
+						<h2>You Really Need to See Me</h2>
+						<button type="button" class="btn btn-danger" id="favorite">Let's Talk</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!-- <div id="result" hidden> -->
+		<div class="container-fluid" id="result" hidden>
+			<div class="row">
+				<div class="col-sm-12" id="goBack-holder">
+					<!-- x close button will be set from js -->
+				</div>
+			</div>
+			<div class="row" id="description_map">
+				<div class="col-sm-6" id="foodDescription">
+					<script id="description-template" type="text/x-handlebars-template">
+						<h3>\{{dish.name}} - \{{dish.english}}</h3>
+						<img src="\{{dish.image}}" class="img-responsive" style="width: 400px">
+						<br>
+						<p>\{{dish.description}} <i>(\{{dish.source}})</i></p>
+					</script>
+				</div>
+				<div class="col-sm-6 map-holder">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row" id="restaurantList">
+				<div class="col-sm-10 col-sm-offset-1">
+					<div class="row">
+						<!-- <div id="restaurantList"> -->
+						<script id="restaurant-template" type="text/x-handlebars-template">
+							{{#if user}}
+								<div class="col-sm-6">
 												\{{#each lefts}}
 													<h4>\{{name}}</h4>
 													<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
@@ -160,8 +163,8 @@
 													<p>Tel: \{{display_phone}}</p>
 													<hr>
 												\{{/each}}
-										</div>
-										<div class="col-sm-6">
+								</div>
+								<div class="col-sm-6">
 													\{{#each rights}}
 													<h4>\{{name}}</h4>
 													<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
@@ -170,9 +173,9 @@
 													<p>Tel: \{{display_phone}}</p>
 													<hr>
 												\{{/each}}
-										</div>
-									{{else}}
-										<div class="col-sm-6">
+								</div>
+							{{else}}
+								<div class="col-sm-6">
 												\{{#each lefts}}
 													<h4>\{{name}}</h4>
 													<p>\{{location.display_address.[0]}}</p>
@@ -180,8 +183,8 @@
 													<p>Tel: \{{display_phone}}</p>
 													<hr>
 												\{{/each}}
-										</div>
-										<div class="col-sm-6">
+								</div>
+								<div class="col-sm-6">
 													\{{#each rights}}
 													<h4>\{{name}}</h4>
 													<p>\{{location.display_address.[0]}}</p>
@@ -189,61 +192,51 @@
 													<p>Tel: \{{display_phone}}</p>
 													<hr>
 												\{{/each}}
-										</div>
-									{{/if}}
-								</script>
-							<!-- </div> -->
-						</div>
+								</div>
+							{{/if}}
+						</script>
+						<!-- </div> -->
 					</div>
 				</div>
 			</div>
-	
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-sm-12 text-center" style="height: 100%" id="reminder" hidden>
-						<img src="http://lmld.org/wp-content/uploads/2012/11/019edited.jpg" class="img-responsive" id="bonAppetit-img">
-						<div class="text-center" id="msg">
-							<h2>Please Write a Review after Your Visit</h2>
-							<button type="button" class="ok" style="margin-bottom: 15px">Back</button>
-						</div>
+		</div>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12 text-center" style="height: 100%" id="reminder" hidden>
+					<img src="http://lmld.org/wp-content/uploads/2012/11/019edited.jpg" class="img-responsive" id="bonAppetit-img">
+					<div class="text-center" id="msg">
+						<h2>Please Write a Review after Your Visit</h2>
+						<button type="button" class="ok" style="margin-bottom: 15px">Back</button>
 					</div>
 				</div>
 			</div>
-
-
-			<div class="container" id="answerMe" hidden>
-				<div class="row">
-						<div class="col-sm-12">
-							<span class='backToMainPage'>X</span>
-						</div>
-					</div>
-				<div class="row" id="tempo">
-					<div class="col-sm-4 text-center">
-					<button type="button" class="btn btn-danger" id="favorite">Click</button>
-						<img src="guru.png" class="img-responsive" id="guru">
-						<button type="button" class="btn btn-danger" id="clickAnswer">Click to Answer</button>
-					</div>
-
-					<div class="col-sm-8">
-						<div class="text-center" id="question-holder">
-						</div>
-					</div>
+		</div>
+		<div class="container" id="answerMe" hidden>
+			<div class="row">
+				<div class="col-sm-12 close">
+					<!-- <span class='backToMainPage'>X</span> -->
 				</div>
 			</div>
-
+			<!-- <div class="col-sm-4 text-center"> -->
+			<!-- <div class="text-center">
+				<button type="button" class="btn btn-danger" id="clickAnswer">Click to Answer</button>
+			</div> -->
+			<!-- </div> -->
+			<!-- <div class="col-sm-8"> -->
+			<div class="text-center" id="question-holder" hidden>
+			</div>
+			<!-- </div> -->
+		</div>
 		<!-- jquery -->
-	  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-	  <!-- bootstrap js -->
-	  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-	  <!-- handlebars -->
-	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-
-	  <!-- google maps -->
-	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
-
-	  <!-- custom script -->
-	  <script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<!-- bootstrap js -->
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- handlebars -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+		<!-- google maps -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
+		<!-- custom script -->
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>

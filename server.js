@@ -107,7 +107,7 @@ app.get("/login", function(req, res) {
 app.post('/login',
 	passport.authenticate('local', {
 		successRedirect: '/home',
-		failureRedirect: '/',
+		failureRedirect: '/login',
 		failureFlash: true
 	}));
 
@@ -220,6 +220,8 @@ app.put("/api/reviews/:id", function(req, res) {
 					_id: id
 				}, function(err, foundReview) {
 					foundReview.business = req.body.business;
+					foundReview.address1 = req.body.address1;
+					foundReview.address2 = req.body.address2;
 					foundReview.dateVisited = req.body.dateVisited;
 					foundReview.thought = req.body.thought;
 					foundReview.written = req.body.written;

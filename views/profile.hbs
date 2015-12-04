@@ -6,45 +6,53 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lora:400,700italic' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="main.css">
+		<link type="text/css" rel="stylesheet" href="profile.css">
 
 		<title>Reviews</title>
 	</head>
 	<body>
 		{{> navbar}}
-
-		<div class="container">
-			<div id="visitedPlace-list">
-				{{#if user.reviews}}
-					{{#each user.reviews}}
-						<div class="row">
-							<div class="col-sm-12">
-								<h3>{{business}}</h3>
-							</div>
+		<div class="container text-center">
+			<h1>Hello, {{user.username}}!</h1>
+		</div>
+		<div class="container" id="visitedPlace-list">
+			{{#if user.reviews}}
+				{{#each user.reviews}}
+					<div class="row">
+						<div class="col-sm-12">
+							<h3>{{business}}</h3>
+							<h4>{{address1}}</h4>
+							<h4>{{address2}}</h4>
 						</div>
-						<div class="row">
-							<div class="col-sm-5">
-								<h4><i>Visisted on {{dateVisited}}</i></h4>
-							</div>
-							<div class="col-sm-7">
-								<h4>{{thought}}</h4>
-								<button type="button" class="btn btn-default pull-right edit-button" aria-label="Left Align" id="{{_id}}">
-									<span class="glyphicon glyphicon-edit glyphicon-align-left" aria-hidden="true"></span>
-								</button>
-								<form id="edit-form" hidden>
-									<input type="hidden" name="written" class="form-control" value="true" style="height: 50px">
-									<input type="hidden" name="business" class="form-control" value="{{business}}" style="height: 50px">
-									<input type="hidden" name="dateVisited" class="form-control" value="{{dateVisited}}" style="height: 50px">
-									<input type="text" name="thought" class="form-control" style="height: 50px" placeholder="Please write your review" required>
-									<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Edit</button>
-								</form>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-5">
+							<p><i>Visisted on {{dateVisited}}</i></p>
 						</div>
-					{{/each}}
-				{{else}}
-					<h3 class="text-center">You haven't went to any recommended restaurant.</h3>
-				{{/if}}
-			</div>
+						<div class="col-sm-7">
+							<h4 style="float: left">{{thought}}</h4>
+							<button type="button" class="btn btn-default pull-right edit-button" aria-label="Left Align" id="{{_id}}" style="float: right">
+								<span class="glyphicon glyphicon-edit glyphicon-align-left" aria-hidden="true"></span>
+							</button>
+							<form id="edit-form" hidden>
+								<input type="hidden" name="address1" class="form-control" value="{{address1}}" style="height: 50px">
+								<input type="hidden" name="address2" class="form-control" value="{{address2}}" style="height: 50px">
+								<input type="hidden" name="written" class="form-control" value="true" style="height: 50px">
+								<input type="hidden" name="business" class="form-control" value="{{business}}" style="height: 50px">
+								<input type="hidden" name="dateVisited" class="form-control" value="{{dateVisited}}" style="height: 50px">
+								<input type="text" name="thought" class="form-control" style="height: 50px" placeholder="Please write your review" required>
+								<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Edit</button>
+							</form>
+						</div>
+					</div>
+					<hr>
+				{{/each}}
+			{{else}}
+				<h3 class="text-center">You haven't went to any recommended restaurant.</h3>
+			{{/if}}
 		</div>
 
 		<!-- jquery -->
