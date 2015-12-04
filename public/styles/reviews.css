@@ -9,17 +9,18 @@ body {
 }
 .header {
 	margin-top: 10px;
-	background: rgba(237, 237, 237, 0.5);
+	background: rgba(237, 237, 237, 1);
 }
 .review_holder {
-	margin: 3px 0px 3px 0px;
+	margin-top: 20px;
+	background: rgba(237, 237, 237, 1);
+	padding: 15px;
 }
 h1 {
 	font-family: 'Lora', serif;
 }
 #review-list {
-	background: rgba(237, 237, 237, 0.5);
-	margin-top: 20px;
+	padding-top: 20px;
 }
 #review-list h3 {
 	font-size: 28px;
@@ -29,7 +30,7 @@ h1 {
 	margin: 0;
 }
 h4.reviews {
-	font-size: 22px;
+	font-size: 18px;
 	font-family: 'Merriweather', serif;
 }
 #review-list p {

@@ -21,14 +21,13 @@
 		<div class="container" id="visitedPlace-list">
 			{{#if user.reviews}}
 				{{#each user.reviews}}
-					<div class="row">
+					<div class="row single_review">
 						<div class="col-sm-12">
 							<h3>{{business}}</h3>
 							<h4>{{address1}}</h4>
 							<h4>{{address2}}</h4>
 						</div>
-					</div>
-					<div class="row">
+					
 						<div class="col-sm-5">
 							<p><i>Visisted on {{dateVisited}}</i></p>
 						</div>

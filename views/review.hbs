@@ -21,23 +21,20 @@
 		<div class="container" id="review-list">
 			<script id="review-template" type="text/x-handlebars-template">
 				\{{#each reviews}}
-						<div class="review_holder">
-						<div class="row">
-							<div class="col-sm-12">
-								<h3>\{{business}}</h3>
-								<h4>\{{address1}}</h4>
-								<h4>\{{address2}}</h4>
-							</div>
+					<div class="row review_holder">
+						<div class="col-sm-12">
+							<h3>\{{business}}</h3>
+							<h4>\{{address1}}</h4>
+							<h4>\{{address2}}</h4>
 						</div>
-						<div class="row">
-							<div class="col-sm-4">
-								<p><i>\{{author.username}} visisted here on \{{dateVisited}}</i></p>
-							</div>
-							<div class="col-sm-8">
-								\{{#if written}}
-								<h4 class="reviews">\{{thought}}</h4>
-								\{{/if}}
-							</div>
+					
+						<div class="col-sm-4">
+							<p><i>\{{author.username}} visisted here on \{{dateVisited}}</i></p>
+						</div>
+						<div class="col-sm-8">
+							\{{#if written}}
+							<h4 class="reviews">\{{thought}}</h4>
+							\{{/if}}
 						</div>
 						<hr>
 					</div>

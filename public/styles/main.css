@@ -35,6 +35,10 @@ button#topDishes, button#random, button#favorite, button.left, button.right, but
 	padding: 10px;
   font-size: 26px;
 }
+button.left, button.right {
+	margin: 10px;
+	min-width: 75px;
+}
 .option { 
   position: absolute; 
   top: 20%; 
