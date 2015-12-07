@@ -13,20 +13,37 @@ $(function() {
 		});
 		$("#dropdown-list").append("<li><a href='#'>" + capitalize + "</a></li>");
 	});
-	var createMap = function() {
+	var createMap = function(lat, longs) {
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
-				lat: 37.78,
-				lng: -122.44
-			},
-			zoom: 13
+				lat: lat,
+				lng: longs
+			}
+			// zoom: 8
 		});
+		
 	};
+
+	//save location to local storage
+	$('#searchLocation').submit( function(event){
+		event.preventDefault();
+		var location = $("#location").val();
+		console.log(location);
+		localStorage.setItem("location", location);
+	});
+
+
 	//helper functions
 	function restaurantsSellThisDish(dish, keyword) {
 		$("#answerMe").hide();
 		$("#map").show();
-		$.get("/api/" + dish, function(data) {
+		$.get("/api/" + dish, {location: localStorage.getItem("location")}, function(data) {
+			console.log(data);
+			var longs = Number(data.region.center.longitude);
+			var lat = Number(data.region.center.latitude);
+			console.log('lat',lat,"long",longs);
+			console.log(typeof longs);
+			console.log(typeof lat);
 			var restaurants = data.restaurants;
 			var leftResult = restaurants.slice(0, 5);
 			var rightResult = restaurants.slice(-5);
@@ -40,6 +57,9 @@ $(function() {
 				rights: rightResult
 			});
 			$("#restaurantList").append(restaurantHtmlRight);
+			
+			createMap(lat, longs);
+			
 			restaurants.forEach(function(restaurant) {
 				var contentString = '<div id="content">' +
 					'<div id="siteNo(tice">' +
@@ -50,7 +70,7 @@ $(function() {
 					', ' + restaurant.location.display_address[1] +
 					'<br>' + restaurant.location.display_address[2] + '</p>' +
 					'</div>' +
-					'</div>';
+					'</div>';	
 				var infowindow = new google.maps.InfoWindow({
 					content: contentString
 				});
@@ -83,7 +103,6 @@ $(function() {
 			});
 			$description.append(descriptionHtml);
 		});
-		createMap();
 	}
 	//for food description
 	var $description = $("#foodDescription");
