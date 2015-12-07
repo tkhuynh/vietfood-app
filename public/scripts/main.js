@@ -4,8 +4,8 @@ $(function() {
 	var dried_noddle = ["Bun Thit Nuong"];
 	var spicy_soup = ["Bun Bo Hue"];
 	var non_spicy_soup = ["Pho", "Bun Rieu", "Hu Tieu Nam Vang", "Bo Kho"];
-	var apertizer = ["Cha Gio", "Goi Cuon", "Goi Du Du"];
-	var non_apertizer = ["Banh Mi", "Banh Xeo"];
+	var appertizer = ["Cha Gio", "Goi Cuon", "Goi Du Du"];
+	var non_appertizer = ["Banh Mi", "Banh Xeo"];
 	var drink = ["Che Ba Mau", "Cafe Sua Da"];
 	commonDishes.forEach(function(dish) {
 		var capitalize = dish.replace(/^.|\s./g, function(x) {
@@ -175,7 +175,6 @@ $(function() {
 		return Math.floor(Math.random() * array.length);
 	}
 
-	//helper function 
 	//Random Options Chosen
 	$("#random").click(function() {
 		$("#goBack-holder").html("<span class='goBack2'>X</span>");
@@ -252,60 +251,62 @@ $(function() {
 	//Guru Option
 	$("#favorite").on("click", function() {
 		$("#options1_2_3").hide();
-		$("#question-holder").empty();
-		$("#question-holder").hide();
 		hidden();
-		$(".close").append("<span class='backToMainPage'>X</span>");
-		$("#answerMe").show();
-
-		$("#question-holder").show();
-		questionMaker("Are You Really Hungry?", "Yes", "No");
-		$(".left").click(function() {
-			$(this).parent().remove();
-			questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
+		function answerGuru() {
+			$("#question-holder").empty();
+			$("#question-holder").hide();
+			$(".close").append("<span class='backToMainPage'>X</span>");
+			$("#answerMe").show();
+			$("#question-holder").show();
+			questionMaker("Are You Really Hungry?", "Yes", "No");
 			$(".left").click(function() {
 				$(this).parent().remove();
-				questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle");
-				//case 1
+				questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
 				$(".left").click(function() {
 					$(this).parent().remove();
-					guruChoice("I Think You Should Try", dried_non_noddle);
+					questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle");
+					//case 1
+					$(".left").click(function() {
+						$(this).parent().remove();
+						guruChoice("I Think You Should Try", dried_non_noddle);
+					});
+					//case 2
+					$(".right").click(function() {
+						$(this).parent().remove();
+						guruChoice("I Think You Should Try", dried_noddle);
+					});
 				});
-				//case 2
 				$(".right").click(function() {
 					$(this).parent().remove();
-					guruChoice("I Think You Should Try", dried_noddle);
+					questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy");
+					//case 3
+					$(".left").click(function() {
+						$(this).parent().remove();
+						guruChoice("I Think You Should Try", spicy_soup);
+					});
+					//case 4
+					$(".right").click(function() {
+						$(this).parent().remove();
+						guruChoice("I Think You Should Try", non_spicy_soup);
+					});
 				});
 			});
 			$(".right").click(function() {
 				$(this).parent().remove();
-				questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy");
-				//case 3
+				questionMaker("Do You Just Like Appertizer or Sandwich?", "Appertizer", "Sandwich");
+				//case 5
 				$(".left").click(function() {
 					$(this).parent().remove();
-					guruChoice("I Think You Should Try", spicy_soup);
+					guruChoice("I Think You Should Try", appertizer);
 				});
-				//case 4
+				//case 6
 				$(".right").click(function() {
 					$(this).parent().remove();
-					guruChoice("I Think You Should Try", non_spicy_soup);
+					guruChoice("I Think You Should Try", non_appertizer);
 				});
 			});
-		});
-		$(".right").click(function() {
-			$(this).parent().remove();
-			questionMaker("Do You Just Like Apertizer or Sandwich?", "Apertizer", "Sandwich");
-			//case 5
-			$(".left").click(function() {
-				$(this).parent().remove();
-				guruChoice("I Think You Should Try", apertizer);
-			});
-			//case 6
-			$(".right").click(function() {
-				$(this).parent().remove();
-				guruChoice("I Think You Should Try", non_apertizer);
-			});
-		});
+		}
+		answerGuru();
 		$("body").on("click", ".backToMainPage", function() {
 			$(this).remove();
 			$("#answerMe").hide();
@@ -315,7 +316,7 @@ $(function() {
 			$(this).remove();
 			$(".backToMainPage").remove();
 			hidden();
-			$("#options1_2_3").show();
+			answerGuru();
 		});
 		$("#restaurantList").on("click", ".chosen", function(event) {
 			hidden();
@@ -339,7 +340,6 @@ $(function() {
 				scrollTop: 0
 			});
 			$("body").on("click", ".ok", function() {
-				console.log("me");
 				$("#reminder").hide();
 				$("#options1_2_3").show();
 				hidden();
