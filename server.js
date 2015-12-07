@@ -150,9 +150,10 @@ var dishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "c
 
 dishes.forEach(function(dish) {
 	app.get("/api/" + dish.replace(/\s/g, ""), function(req, res) {
+		console.log(req.query.location);
 		yelp.search({
 				term: dish,
-				location: "San Francisco, CA",
+				location: req.query.location,
 				sort: 0,
 				category_filter: "vietnamese",
 				radius_filter: 10000,
@@ -160,7 +161,7 @@ dishes.forEach(function(dish) {
 			})
 			.then(function(data) {
 				res.json({
-					restaurants: data.businesses
+					restaurants: data.businesses, region: data.region
 				});
 			})
 			.catch(function(err) {
