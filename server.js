@@ -28,8 +28,8 @@ mongoose.connect(
 	"mongodb://localhost/vfood-app");
 
 var User = require("./models/user"),
-		Description = require("./models/description"),
 		Review = require("./models/review");
+var description = require("./public/datas/description");
 
 // middleware for auth
 app.use(cookieParser());
@@ -146,9 +146,8 @@ var yelp = new Yelp({
 });
 
 //different get request for different disdes
-var dishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"];
-
-dishes.forEach(function(dish) {
+description.forEach(function(x) {
+	var dish = x.name.toLowerCase();
 	app.get("/api/" + dish.replace(/\s/g, ""), function(req, res) {
 		yelp.search({
 				term: dish,
@@ -172,7 +171,7 @@ dishes.forEach(function(dish) {
 //get all dishes descriptions
 app.get("/api/description", function(req, res) {
 	res.json({
-		dishes: Description
+		dishes: description
 	});
 });
 

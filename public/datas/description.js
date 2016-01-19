@@ -1,4 +1,4 @@
-var data = [
+var foodDescription = [
 	{
 		name: "Banh Mi",
 		english: "Vietnamese Sandwich",
@@ -108,4 +108,4 @@ var data = [
 ];
 
 
-module.exports = data;
+module.exports = foodDescription;
