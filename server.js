@@ -152,7 +152,7 @@ dishes.forEach(function(dish) {
 	app.get("/api/" + dish.replace(/\s/g, ""), function(req, res) {
 		yelp.search({
 				term: dish,
-				location: "San Francisco, CA",
+				location: req.query.location,
 				sort: 0,
 				category_filter: "vietnamese",
 				radius_filter: 10000,
