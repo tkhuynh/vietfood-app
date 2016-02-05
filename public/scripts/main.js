@@ -1,6 +1,4 @@
 $(function() {
-
-getLocation();
 var currentLocation = localStorage.getItem("zipCode");
 var currentLongitude = Number(localStorage.getItem("longitude"));
 var currentLatitude = Number(localStorage.getItem("latitude"));
@@ -357,5 +355,4 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 			});
 		});
 	});
-	
 });

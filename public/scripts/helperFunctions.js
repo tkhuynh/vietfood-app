@@ -9,7 +9,7 @@ function success(position) {
   var positionInfo = position.coords;
   x = positionInfo.latitude;
   y = positionInfo.longitude;
-  var geocoder = new google.maps.Geocoder;
+  var geocoder = new google.maps.Geocoder();
 	function getLocationZipcode(geocoder) {
 	  var latlng = {lat: x, lng: y};
 	  geocoder.geocode({'location': latlng}, function(results, status) {
