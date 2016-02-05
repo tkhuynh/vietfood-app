@@ -24,7 +24,7 @@ var foodDescription = [
 		name: "Bo Kho",
 		english: "Beef Stew",
 		description: "The origin of the stew lies in northern Vietnam, where it is eaten for breakfast. In central Vietnam Bo kho is served as a noodle, and in South Vietnam fresh bread is dipped in the sauce. These three ways make this dish eaten for breakfast, lunch or as a main course. When served with rice noodles, it is one of my favorite dishes.",
-		image: "http://foodforfour.com/wp-content/uploads/2010/02/Bo-Kho.jpg",
+		image: "http://l.f13.img.vnecdn.net/2013/08/09/bk-3-1376010510_500x0.jpg",
 		source: "www.pho-vietnam.com"
 	},
 	{
@@ -38,7 +38,7 @@ var foodDescription = [
 		name: "Bun Bo Hue",
 		english: "Spicy Beef Noodle Soup",
 		description: "Bun Bo Hue is a popular Vietnamese soup containing rice vermicelli (bún) and beef (bò). Huế is a city in central Vietnam associated with the cooking style of the former royal court. The dish is greatly admired for its balance of spicy, sour, salty and sweet flavors and the predominant flavor is that of lemon grass. The noodles are thicker and more cylindrical.",
-		image: "http://asia-recipes.com/wp-content/uploads/2015/03/Recipe-for-delicious-Hue-noodle-soup3.jpg",
+		image: "http://farm8.staticflickr.com/7457/9132698028_f54d5bcf96.jpg",
 		source: "Wikipedia"
 	},
 	{
@@ -59,7 +59,7 @@ var foodDescription = [
 		name: "Cafe Sua Da",
 		english: "Vietnamese Iced Coffee",
 		description: "Ca phe da is made with coarsely ground Vietnamese-grown dark roast coffee individually brewed with a small metal French drip filter (cà phê phin) into a cup containing about a quarter to a half as much sweetened condensed milk, stirred and poured over ice. The coarse grind allows the use of the cà phê phin.",
-		image: "http://dabblemag.com/wp-content/uploads/2014/01/Vietnam.jpg",
+		image: "http://www.platetrotter.com/uploads/1/0/2/3/10238271/5887719_orig.jpg",
 		source: "Wikipedia"
 	},
 	{
@@ -73,7 +73,7 @@ var foodDescription = [
 		name: "Che Ba Mau",
 		english: "Three Color Dessert",
 		description: "Che Ba Mau consists of three colors which are Red, Yellow and Green. Red is red/zucchini bean, Yellow is mung beean and Green is green agar strip. The dessert is served with sugar water, coconut milk and crushed ice.",
-		image: "https://s-media-cache-ak0.pinimg.com/736x/59/55/ff/5955ffb578122bd6065e3836f231e538.jpg",
+		image: "http://www.hanoitourist.com.vn/english/images/Anhbaiviet/Bai_viet_hang_ngay/Am_thuc/che_ba_mau_2.jpg",
 		source: "Trung Huynh"
 	},
 	{

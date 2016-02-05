@@ -28,6 +28,16 @@ body {
 .navbar>.container-fluid .navbar-brand {
   margin-left: 15px;
 }
+
+img.thumbnail-pic {
+	margin-top: 5px;
+	height: 166px;
+	width: 220px;
+}
+.caption p {
+	margin-bottom: 0
+}
+
 #papayaSalad-img, #summerRoll-img, #pho-img {
 	position: relative;
 }
@@ -63,6 +73,7 @@ button.left, button.right {
 }
 
 #panel {
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
 	text-align: center;
 	background-color: #F1F2F2;
 	margin-top: 15px;

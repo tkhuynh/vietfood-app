@@ -112,13 +112,13 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 	//Top Dishes option trial
 	$(".topOption").click(function() {
 		$("#panel").slideToggle("slow");
-		$("#lower1, #lower2, #lower3").toggle();
+		$("#option-holder").toggle();
 	});
 	$(".topOption2").click(function() {
 		$('#picsHolder2').hide();
 		$('#picsHolder1').show();
 		$("#panel").slideToggle("slow");
-		$("#lower1, #lower2, #lower3").toggle();
+		$("#option-holder").toggle();
 	});
 
 	$(".next").click(function() {
@@ -172,7 +172,7 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 			});
 			$("body").on("click", ".ok", function() {
 				$("#reminder").hide();
-				$("#lower1, #lower2, #lower3").show();
+				$("#option-holder").show();
 			});
 		});
 
@@ -187,7 +187,7 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 	//Random Options Chosen
 	$("#random").click(function() {
 		$("#goBack-holder").html("<span class='goBack2'>X</span>");
-		$("#lower1, #lower2, #lower3").hide();
+		$("#option-holder").hide();
 		$("#answerMe").hide();
 		$("#result").show();
 		var random = randomNum(commonDishes);
@@ -196,7 +196,7 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 		restaurantsSellThisDish(dish, keyword);
 		$(".goBack2").click(function() {
 			$(this).hide();
-			$("#lower1, #lower2, #lower3").show();
+			$("#option-holder").show();
 			hidden();
 		});
 
@@ -223,7 +223,7 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 			});
 			$("body").on("click", ".ok", function() {
 				$("#reminder").hide();
-				$("#lower1, #lower2, #lower3").show();
+				$("#option-holder").show();
 				hidden();
 			});
 		});
