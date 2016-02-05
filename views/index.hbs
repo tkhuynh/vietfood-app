@@ -210,51 +210,38 @@
 			</div>
 		</div>
 		<div class="container-fluid">
+			<br><img src="" alt="">
 			<div class="row" id="restaurantList">
 				<div class="col-sm-10 col-sm-offset-1">
 					<div class="row">
 						<!-- <div id="restaurantList"> -->
 						<script id="restaurant-template" type="text/x-handlebars-template">
 							{{#if user}}
-								<div class="col-sm-6">
-										\{{#each lefts}}
+								\{{#each restaurants}}
+									<div class="col-xs-6 col-md-6">
+										<div class="thumbnail">
 											<h4>\{{name}}</h4>
 											<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
 											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[2]}}</p>
+											<p>\{{location.display_address.[1]}}</p>
 											<p>Tel: \{{display_phone}}</p>
 											<hr>
-										\{{/each}}
-								</div>
-								<div class="col-sm-6">
-										\{{#each rights}}
+										</div>
+									</div>
+								\{{/each}}
+							{{else}}
+								\{{#each restaurants}}
+									<div class="col-xs-6 col-md-6">
+										<div class="thumbnail">
 											<h4>\{{name}}</h4>
-											<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
+											<p><img src="\{{rating_img_url}}" class="pull-left"></p>
+											</br>
 											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[2]}}</p>
+											<p>\{{location.display_address.[1]}}</p>
 											<p>Tel: \{{display_phone}}</p>
-											<hr>
-										\{{/each}}
-								</div>
-								{{else}}
-								<div class="col-sm-6">
-										\{{#each lefts}}
-											<h4>\{{name}}</h4>
-											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[2]}}</p>
-											<p>Tel: \{{display_phone}}</p>
-											<hr>
-										\{{/each}}
-								</div>
-								<div class="col-sm-6">
-										\{{#each rights}}
-											<h4>\{{name}}</h4>
-											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[2]}}</p>
-											<p>Tel: \{{display_phone}}</p>
-											<hr>
-										\{{/each}}
-								</div>
+										</div>
+									</div>
+								\{{/each}}
 							{{/if}}
 						</script>
 					</div>
@@ -293,5 +280,6 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
 		<!-- custom script -->
 		<script type="text/javascript" src="/scripts/main.js"></script>
+		<script type="text/javascript" src="/scripts/helperFunctions.js"></script>
 	</body>
 </html>

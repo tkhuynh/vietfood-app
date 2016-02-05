@@ -1,11 +1,11 @@
-$(function() {
-var currentLocation = localStorage.getItem("zipCode");
-var currentLongitude = Number(localStorage.getItem("longitude"));
-var currentLatitude = Number(localStorage.getItem("latitude"));
-if (!currentLocation) {
-	currentLocation = "San Francisco"; 
-}
-console.log(currentLocation, typeof currentLongitude, currentLatitude);
+$(function() {	
+	var currentLocation = localStorage.getItem("zipCode");
+	var currentLongitude = Number(localStorage.getItem("longitude"));
+	var currentLatitude = Number(localStorage.getItem("latitude"));
+	if (!currentLocation) {
+		currentLocation = "San Francisco";
+	}
+	console.log(currentLocation, typeof currentLongitude, currentLatitude);
 
 
 	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
@@ -35,30 +35,22 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 	function restaurantsSellThisDish(dish, keyword) {
 		$("#answerMe").hide();
 		$("#map").show();
-		$.get("/api/" + dish, {location: currentLocation},function(data) {
-			var restaurants = data.restaurants;
-			var leftResult = restaurants.slice(0, 5);
-			var rightResult = restaurants.slice(-5);
-			$("#restaurantList").empty();
-			var restaurantHtmlLeft = template2({
-				lefts: leftResult
-			});
+		$.get("/api/" + dish, {
+			location: currentLocation
+		}, function(data) {
 			$("#result, .goBack, .goBack2").show();
-			$("#restaurantList").append(restaurantHtmlLeft);
-			var restaurantHtmlRight = template2({
-				rights: rightResult
+			var restaurants = data.restaurants;
+			$("#restaurantList").empty();
+			var restaurantHtml = template2({
+				restaurants: restaurants
 			});
-			$("#restaurantList").append(restaurantHtmlRight);
+			console.log(restaurants);
+			$("#restaurantList").append(restaurantHtml);
 			restaurants.forEach(function(restaurant) {
 				var contentString = '<div id="content">' +
 					'<div id="siteNo(tice">' +
 					'</div>' +
-					'<h4 id="firstHeading" class="firstHeading">' + restaurant.name + '</h4>' +
-					'<div id="bodyContent">' +
-					'<p>' + restaurant.location.display_address[0] +
-					', ' + restaurant.location.display_address[1] +
-					'<br>' + restaurant.location.display_address[2] + '</p>' +
-					'</div>' +
+					'<h5 id="firstHeading" class="firstHeading">' + restaurant.name + '</h5>' +
 					'</div>';
 				var infowindow = new google.maps.InfoWindow({
 					content: contentString
@@ -71,7 +63,10 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 					title: restaurant.name,
 					icon: '/images/restaurant.png'
 				});
-				marker.addListener("click", function() {
+
+				marker.addListener('click', function(e) {
+					infowindow.close();
+					infowindow.setContent(contentString);
 					infowindow.open(map, marker);
 				});
 			});
@@ -245,6 +240,7 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 	$("#favorite").on("click", function() {
 		$("#options1_2_3").hide();
 		hidden();
+
 		function answerGuru() {
 			$("#question-holder").empty();
 			$("#question-holder").hide();
