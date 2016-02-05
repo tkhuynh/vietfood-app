@@ -109,47 +109,31 @@ console.log(currentLocation, typeof currentLongitude, currentLatitude);
 		$("#restaurantList").empty();
 	}
 
-	//Top Dishes option trial
+	//Top Dishes option
 	$(".topOption").click(function() {
 		$("#panel").slideToggle("slow");
 		$("#option-holder").toggle();
 	});
-	$(".topOption2").click(function() {
-		$('#picsHolder2').hide();
-		$('#picsHolder1').show();
-		$("#panel").slideToggle("slow");
-		$("#option-holder").toggle();
-	});
 
-	$(".next").click(function() {
-		$('#panel #picsHolder1').hide();
-		$('#panel #picsHolder2').slideToggle("slow");
-	});
-	$(".back").click(function() {
-		$('#panel #picsHolder2').hide();
-		$('#panel #picsHolder1').slideToggle("slow");
-	});
-
-	$("#picsHolder1, #picsHolder2").on("click", "img", function(event) {
+	$("#panel").on("click", "img", function(event) {
 		event.preventDefault();
 		$("#goBack-holder").html("<span class='goBack'>X</span>");
-		var picsHolder = $(this).parent().parent().parent();
 		var keyword = $(this).attr("id").replace(/_/g, " ");
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
 		$("#result, .goBack").show();
-		picsHolder.toggle();
+		$("#panel").toggle();
 		$(".goBack").click(function() {
-			$("#picsHolder1, #picsHolder2").hide();
-			picsHolder.show();
+			$("#panel, #picsHolder2").hide();
+			$("#panel").show();
 			hidden();
 			$(this).hide();
 		});
 
 		$("#restaurantList").on("click", ".chosen", function(event) {
-			$("#picsHolder1, #picsHolder2").hide();
 			$("#panel").hide();
-			picsHolder.show();
+			$("#panel").hide();
+			$("#panel").show();
 			hidden();
 			$(".goBack").hide();
 			event.preventDefault();
