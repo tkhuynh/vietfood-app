@@ -1,4 +1,5 @@
 function getLocation() {
+		localStorage.clear();
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success);
     } else { 

@@ -38,6 +38,10 @@ img.thumbnail-pic {
 	margin-bottom: 0
 }
 
+.restaurant-thumbnail {
+	min-height: 190px
+}
+
 #papayaSalad-img, #summerRoll-img, #pho-img {
 	position: relative;
 }
@@ -113,9 +117,17 @@ button.left, button.right {
 #map {
 	width: 100%;
 	height: 500px;
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
 }
 #result, #restaurantList, #answerMe {
 	background-color: #F1F2F2;
+}
+#result {
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
+	padding-bottom: 25px;
+}
+#restaurantList {
+	padding-top: 20px;
 }
 #restaurantList h4, #restaurantList p {
 	padding-left: 15px;

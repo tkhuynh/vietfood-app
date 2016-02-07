@@ -5,7 +5,7 @@ $(function() {
 	if (!currentLocation) {
 		currentLocation = "San Francisco";
 	}
-	console.log(currentLocation, typeof currentLongitude, currentLatitude);
+	console.log(currentLocation, currentLongitude, currentLatitude);
 
 
 	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
@@ -44,7 +44,6 @@ $(function() {
 			var restaurantHtml = template2({
 				restaurants: restaurants
 			});
-			console.log(restaurants);
 			$("#restaurantList").append(restaurantHtml);
 			restaurants.forEach(function(restaurant) {
 				var contentString = '<div id="content">' +

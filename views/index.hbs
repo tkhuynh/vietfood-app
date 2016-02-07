@@ -9,7 +9,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="/styles/main.css">
-		<title>Document</title>
+		<title>Viet Food Guru</title>
 	</head>
 	<body>
 		{{> navbar}}
@@ -219,7 +219,7 @@
 							{{#if user}}
 								\{{#each restaurants}}
 									<div class="col-xs-6 col-md-6">
-										<div class="thumbnail">
+										<div class="thumbnail restaurant-thumbnail">
 											<h4>\{{name}}</h4>
 											<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
 											<p>\{{location.display_address.[0]}}</p>
@@ -232,7 +232,7 @@
 							{{else}}
 								\{{#each restaurants}}
 									<div class="col-xs-6 col-md-6">
-										<div class="thumbnail">
+										<div class="thumbnail restaurant-thumbnail">
 											<h4>\{{name}}</h4>
 											<p><img src="\{{rating_img_url}}" class="pull-left"></p>
 											</br>
