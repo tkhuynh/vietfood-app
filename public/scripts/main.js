@@ -127,7 +127,6 @@ $(function() {
 		$("#restaurantList").on("click", ".chosen", function(event) {
 			$("#panel").hide();
 			$("#panel").hide();
-			$("#panel").show();
 			hidden();
 			$(".goBack").hide();
 			event.preventDefault();
@@ -239,7 +238,6 @@ $(function() {
 	$("#favorite").on("click", function() {
 		$("#options1_2_3").hide();
 		hidden();
-
 		function answerGuru() {
 			$("#question-holder").empty();
 			$("#question-holder").hide();
@@ -307,6 +305,7 @@ $(function() {
 			answerGuru();
 		});
 		$("#restaurantList").on("click", ".chosen", function(event) {
+			$(".backToMainPage").remove();
 			hidden();
 			event.preventDefault();
 			var name = $(this).attr("id");

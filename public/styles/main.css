@@ -124,11 +124,10 @@ button.left, button.right {
 }
 #result {
 	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
-	padding-bottom: 25px;
 }
-#restaurantList {
+/*#restaurantList {
 	padding-top: 20px;
-}
+}*/
 #restaurantList h4, #restaurantList p {
 	padding-left: 15px;
 }
