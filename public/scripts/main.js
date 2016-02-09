@@ -1,13 +1,9 @@
 $(function() {	
-	var currentLocation = localStorage.getItem("zipCode");
-	var currentLongitude = Number(localStorage.getItem("longitude"));
-	var currentLatitude = Number(localStorage.getItem("latitude"));
-	if (!currentLocation) {
-		currentLocation = "San Francisco";
-	}
-	console.log(currentLocation, currentLongitude, currentLatitude);
-
-
+	getLocation();
+	// var currentLocation = localStorage.getItem("zipCode");
+	// var currentLongitude = Number(localStorage.getItem("longitude"));
+	// var currentLatitude = Number(localStorage.getItem("latitude"));
+	// console.log(currentLocation, currentLongitude, currentLatitude);
 	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
 	var dried_non_noddle = ["Bo Luc Lac", "Com Tam Bi Suon Cha"];
 	var dried_noddle = ["Bun Thit Nuong"];
@@ -23,6 +19,8 @@ $(function() {
 		$("#dropdown-list").append("<li><a href='#'>" + capitalize + "</a></li>");
 	});
 	var createMap = function() {
+		var currentLongitude = Number(localStorage.getItem("longitude"));
+		var currentLatitude = Number(localStorage.getItem("latitude"));
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
 				lat: currentLatitude,
@@ -33,6 +31,7 @@ $(function() {
 	};
 	//helper functions
 	function restaurantsSellThisDish(dish, keyword) {
+		var currentLocation = localStorage.getItem("zipCode");
 		$("#answerMe").hide();
 		$("#map").show();
 		$.get("/api/" + dish, {
