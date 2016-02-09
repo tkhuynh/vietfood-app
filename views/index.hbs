@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<!-- set viewport to device width to make site responsive -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
@@ -154,37 +154,49 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div id="option-holder">
-				<div class="row">
-					<div class="col-sm-12 text-center" style="height: 100%" id="lower1">
-						<img src="/images/papaya_salad.jpg" class="img-responsive" id="papayaSalad-img">
-						<div class="text-center option">
-							<h2>15 Best Vietnamese Dishes</h2>
-							<button type="button" class="btn btn-danger topOption" id="topDishes">Top Dishes</button>
+				<div class="intro-header">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title">
+								<h1>15 Best Vietnamese Dishes</h1>
+								<hr class="intro-divider">
+								<button type="button" class="btn btn-danger topOption" id="topDishes">Top Dishes</button>
+								<br>
+								<br>
+								<h1 class="down"><a href="#random-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-12 text-center" style="height: 100%" id="lower2">
-						<img src="/images/summer_roll.jpg" class="img-responsive" id="summerRoll-img">
-						<div class="text-center option">
-							<h2>Are You Still Deciding?</h2>
-							<button type="button" class="btn btn-danger" id="random">Click Me</button>
+				
+				<div class="intro-header2" id="random-section">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title">
+								<h1>Are You Still Deciding?</h1>
+								<hr class="intro-divider">
+								<button type="button" class="btn btn-danger" id="random">Click Me</button>
+								<br>
+								<br>
+								<h1 class="down"><a href="#guru-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
+							</div>
 						</div>
 					</div>
 				</div>
-				{{#if user}}
-				<div class="row">
-					<div class="col-sm-12 text-center" style="height: 100%" id="lower3">
-						<img src="/images/pho.jpg" class="img-responsive" id="pho-img">
-						<div class="text-center option">
-							<h2>You Really Need to See Me</h2>
-							<button type="button" class="btn btn-danger" id="favorite">Let's Talk</button>
+			
+				<div class="intro-header3" id="guru-section">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title">
+								<h1>You Really Need to See Me</h1>
+								<hr class="intro-divider">
+								<button type="button" class="btn btn-danger" id="favorite">Let's Talk</button>
+							</div>
 						</div>
 					</div>
 				</div>
-				{{/if}}
 			</div>
 		</div>
 		
@@ -209,20 +221,20 @@
 			</div>
 		</div>
 		<div class="container-fluid" id="restaurantList">
+			<br>
 			<div class="row" >
 				<div class="col-sm-10 col-sm-offset-1">
 					<div class="row">
-						<!-- <div id="restaurantList"> -->
 						<script id="restaurant-template" type="text/x-handlebars-template">
 							{{#if user}}
 								\{{#each restaurants}}
 									<div class="col-xs-6 col-md-6">
-										<div class="thumbnail restaurant-thumbnail">
+										<div class="thumbnail restaurant-thumbnail" style="min-height: 236px">
 											<h4>\{{name}}</h4>
-											<button type="button" class="chosen" id="\{{name}}">I Go Here</button>
 											<p>\{{location.display_address.[0]}}</p>
 											<p>\{{location.display_address.[1]}}</p>
 											<p>Tel: \{{display_phone}}</p>
+											<button type="button" class="chosen" id="\{{name}}">Save</button>
 											<hr>
 										</div>
 									</div>
@@ -230,7 +242,7 @@
 							{{else}}
 								\{{#each restaurants}}
 									<div class="col-xs-6 col-md-6">
-										<div class="thumbnail restaurant-thumbnail">
+										<div class="thumbnail restaurant-thumbnail" style="min-height: 190px">
 											<h4>\{{name}}</h4>
 											<p><img src="\{{rating_img_url}}" class="pull-left"></p>
 											</br>

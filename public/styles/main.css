@@ -1,3 +1,39 @@
+.intro-header, .intro-header2, .intro-header3 {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+}
+.intro-header {
+    background: url(/images/papaya_salad.jpg) no-repeat center center;
+    background-size: cover;
+}
+.intro-header2 {
+    background: url(/images/summer_roll.jpg) no-repeat center center;
+    background-size: cover;
+}
+.intro-header3 {
+    background: url(/images/pho.jpg) no-repeat center center;
+    background-size: cover;
+}
+.title {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+
+.title > h1, .down {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
 body {
 	height: 100%;
 	width: 100%;
@@ -36,10 +72,6 @@ img.thumbnail-pic {
 }
 .caption p {
 	margin-bottom: 0
-}
-
-.restaurant-thumbnail {
-	min-height: 190px
 }
 
 #papayaSalad-img, #summerRoll-img, #pho-img {
@@ -98,6 +130,9 @@ button.left, button.right {
 	float: right;
 	margin: 10px 0px 10px 0px;
 }
+span.backToMainPage, span.goBack, span.topOption {
+	font-size: 25px;
+}
 .next, .back , .ok, .chosen {
   border: none;
   width: 11.125rem;
@@ -107,6 +142,10 @@ button.left, button.right {
   font: normal 15px "Gotham SSm 5r";
   text-transform: uppercase;
   color: #fff;
+}
+.chosen {
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
+	margin-left: 15px;
 }
 #foodDescription img {
 	margin: 0 auto;
@@ -126,7 +165,7 @@ button.left, button.right {
 	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
 }
 /*#restaurantList {
-	padding-top: 20px;
+	margin-top: 20px;
 }*/
 #restaurantList h4, #restaurantList p {
 	padding-left: 15px;
