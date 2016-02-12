@@ -1,3 +1,33 @@
+.close-panel {
+	display: inline-block;
+	width: 50px;
+  height: 50px;
+	background-color: transparent;
+  cursor: pointer;
+}
+.close-panel:hover {
+  opacity: .3;
+}
+.lr {
+  z-index: 1051;
+  width: 1px;
+  height: 50px;
+  background-color: #2c3e50;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.lr .rl {
+  z-index: 1052;
+  width: 1px;
+  height: 50px;
+  background-color: #2c3e50;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 .intro-header, .intro-header2, .intro-header3 {
     padding-top: 50px; 
     padding-bottom: 50px;
@@ -33,6 +63,13 @@
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
+
+.choice_button {
+	padding: 10px;
+  font-size: 26px;
+}
+
+/*#######################*/
 
 body {
 	height: 100%;
@@ -188,29 +225,21 @@ span.backToMainPage, span.goBack, span.topOption {
 #guru, .guru-question {
 	height: 100px;
 }
+
 #question-holder {
-	position: relative;
-	height: 400px;
 	width: 100%;
-	background: url("http://www.foodcoopswales.org.uk/images/background.jpg");
 	margin-bottom: 30px;
 }
 #answerMe {
-	margin-top: 20px;
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
 }
-.question {
-	width: 100%;
-	position: absolute;
-	top: 20%;
-}
-.guru-result {
-	position: absolute;
-	top: 20%;
-	left: 30%;
-	right: 30%;
-}
+
 .question h2, .guru-result h2 {
 	font-family: 'Permanent Marker', cursive;
+}
+#guru_choice_pic {
+	margin: 0 auto;
+	margin-bottom: 10px;
 }
 @media (max-width: 600px) {
   button#topDishes, button#random, button#favorite {

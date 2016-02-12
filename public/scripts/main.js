@@ -1,9 +1,5 @@
-$(function() {	
+$(function() {
 	getLocation();
-	// var currentLocation = localStorage.getItem("zipCode");
-	// var currentLongitude = Number(localStorage.getItem("longitude"));
-	// var currentLatitude = Number(localStorage.getItem("latitude"));
-	// console.log(currentLocation, currentLongitude, currentLatitude);
 	var commonDishes = ["banh mi", "bun bo hue", "pho", "bun thit nuong", "bo luc lac", "cha gio", "goi cuon", "cafe sua da", "bun rieu", "che ba mau", "goi du du", "com tam bi suon cha", "hu tieu nam vang", "bo kho", "banh xeo"].sort();
 	var dried_non_noddle = ["Bo Luc Lac", "Com Tam Bi Suon Cha"];
 	var dried_noddle = ["Bun Thit Nuong"];
@@ -18,199 +14,48 @@ $(function() {
 		});
 		$("#dropdown-list").append("<li><a href='#'>" + capitalize + "</a></li>");
 	});
-	var createMap = function() {
-		var currentLongitude = Number(localStorage.getItem("longitude"));
-		var currentLatitude = Number(localStorage.getItem("latitude"));
-		map = new google.maps.Map(document.getElementById('map'), {
-			center: {
-				lat: currentLatitude,
-				lng: currentLongitude
-			},
-			zoom: 12
+
+	// 15 common dishes
+	$("#first_option").on("click", function() {
+		$("#option-wrapper").hide();
+		$("#dish-holder").show();
+		$(".close_dish_holder").on("click", function() {
+			$("#option-wrapper").show();
+			$("#dish-holder").hide();
 		});
-	};
-	//helper functions
-	function restaurantsSellThisDish(dish, keyword) {
-		var currentLocation = localStorage.getItem("zipCode");
-		$("#answerMe").hide();
-		$("#map").show();
-		$.get("/api/" + dish, {
-			location: currentLocation
-		}, function(data) {
-			$("#result, .goBack, .goBack2").show();
-			var restaurants = data.restaurants;
-			$("#restaurantList").empty();
-			var restaurantHtml = template2({
-				restaurants: restaurants
-			});
-			$("#restaurantList").append(restaurantHtml);
-			restaurants.forEach(function(restaurant) {
-				var contentString = '<div id="content">' +
-					'<div id="siteNo(tice">' +
-					'</div>' +
-					'<h5 id="firstHeading" class="firstHeading">' + restaurant.name + '</h5>' +
-					'</div>';
-				var infowindow = new google.maps.InfoWindow({
-					content: contentString
-				});
-				var latitude = restaurant.location.coordinate.latitude;
-				var longitude = restaurant.location.coordinate.longitude;
-				var marker = new google.maps.Marker({
-					position: new google.maps.LatLng(latitude, longitude),
-					map: map,
-					title: restaurant.name,
-					icon: '/images/restaurant.png'
-				});
-
-				marker.addListener('click', function(e) {
-					infowindow.close();
-					infowindow.setContent(contentString);
-					infowindow.open(map, marker);
-				});
-			});
-		});
-
-		//get description of dish from manually built api then append to the page
-		$.get("/api/description", function(data) {
-			var dishes = data.dishes;
-			var foundDish;
-			dishes.forEach(function(dish) {
-				if (dish.name.toLowerCase() == keyword) {
-					foundDish = dish;
-				}
-			});
-			$("#foodDescription").empty();
-			var descriptionHtml = template1({
-				dish: foundDish
-			});
-			$description.append(descriptionHtml);
-		});
-		createMap();
-	}
-	//for food description
-	var $description = $("#foodDescription");
-	var source1 = $("#description-template").html();
-	var template1 = Handlebars.compile(source1);
-
-	// for restaurants result
-	var source2 = $("#restaurant-template").html();
-	var template2 = Handlebars.compile(source2);
-
-	function hidden() {
-		$("#map").hide();
-		$("#foodDescription").empty();
-		$("#restaurantList").empty();
-	}
-
-	//Top Dishes option
-	$(".topOption").click(function() {
-		$("#panel").slideToggle("slow");
-		$("#option-holder").toggle();
 	});
 
-	$("#panel").on("click", "img", function(event) {
-		event.preventDefault();
-		$("#goBack-holder").html("<span class='goBack'>X</span>");
+	$("#dish-holder").on("click", "img", function(event) {
+		$("#dish-holder").hide();
 		var keyword = $(this).attr("id").replace(/_/g, " ");
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
-		$("#result, .goBack").show();
-		$("#panel").toggle();
-		$(".goBack").click(function() {
-			$("#panel, #picsHolder2").hide();
-			$("#panel").show();
-			hidden();
-			$(this).hide();
+		$("#result").show();
+		$(".close_result").on("click", function() {
+			$("#result").hide();
+			$("#dish-holder").show();
 		});
-
-		$("#restaurantList").on("click", ".chosen", function(event) {
-			$("#panel").hide();
-			$("#panel").hide();
-			hidden();
-			$(".goBack").hide();
-			event.preventDefault();
-			var name = $(this).attr("id");
-			var address1 = $(this).next().text();
-			var address2 = $(this).next().next().text();
-			var reviewNeedToBeWritten = {
-				business: name,
-				address1: address1,
-				address2: address2,
-				thought: "Please write a review for your last visit.",
-				written: false,
-				dateVisited: (new Date()).toDateString()
-			};
-			//save review to database
-			$.post("/api/reviews", reviewNeedToBeWritten);
-			$("#reminder").show();
-			$("html, body").animate({
-				scrollTop: 0
-			});
-			$("body").on("click", ".ok", function() {
-				$("#reminder").hide();
-				$("#option-holder").show();
-			});
-		});
-
+		$("#restaurantList").on("click", ".chosen", review);
 	});
 
-	//helper function
-	//generation random number from 0 to less than array.length
-	function randomNum(array) {
-		return Math.floor(Math.random() * array.length);
-	}
 
 	//Random Options Chosen
 	$("#random").click(function() {
-		$("#goBack-holder").html("<span class='goBack2'>X</span>");
-		$("#option-holder").hide();
-		$("#answerMe").hide();
-		$("#result").show();
 		var random = randomNum(commonDishes);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
 		restaurantsSellThisDish(dish, keyword);
-		$(".goBack2").click(function() {
-			$(this).hide();
-			$("#option-holder").show();
-			hidden();
-		});
-
-		$("#restaurantList").on("click", ".chosen", function(event) {
-			hidden();
-			event.preventDefault();
-			var name = $(this).attr("id");
-			var address1 = $(this).next().text();
-			var address2 = $(this).next().next().text();
-			var reviewNeedToBeWritten = {
-				business: name,
-				address1: address1,
-				address2: address2,
-				thought: "Please write a review for your last visit.",
-				written: false,
-				dateVisited: (new Date()).toDateString()
-			};
-			//save review to database
-			$.post("/api/reviews", reviewNeedToBeWritten);
-			$(".goBack2").remove();
-			$("#reminder").show();
-			$("html, body").animate({
-				scrollTop: 0
-			});
-			$("body").on("click", ".ok", function() {
-				$("#reminder").hide();
-				$("#option-holder").show();
-				hidden();
-			});
-		});
-
+		$("#option-wrapper").hide();
+		$("#result").show();
+		$(".close_result").on("click", backToMainPage);
+		$("#restaurantList").on("click", ".chosen", review);
 	});
 
 	//function helper 
 	function questionMaker(question, answer1, answer2) {
 		$("#question-holder").empty();
 		$("#question-holder").append("<div class='question text-center'></div>");
-		$(".question").append("<img src='/images/guru.png' class='img-responsive guru-question'>")
+		$(".question")
 			.append("<h2>" + question + "</h2>")
 			.append("<button type='button' class='btn btn-danger left'>" + answer1 + "</button>")
 			.append("<button type='button' class='btn btn-danger right'>" + answer2 + "</button>");
@@ -219,15 +64,19 @@ $(function() {
 	//helper function 
 	function guruChoice(message, category) {
 		var random = randomNum(category);
+		getImageId = category[random].toLowerCase().replace(/\s/g, "_");
+		$image = $("#" + getImageId).clone();
+		$image.attr("id", "guru_choice_pic").addClass("thumbnail");
+		console.log($image);
 		$("#question-holder").append("<div class='guru-result'</div>");
-		$(".guru-result").append("<h2>" + message + "<br>" + category[random] + "</h2>")
+		$(".guru-result").append("<h2>" + message + " " + category[random] + "</h2>")
+			.append($image)
 			.append("<button type='button' class='btn btn-danger find'>Find Restaurants</button>");
 		keyword = category[random].toLowerCase();
 		var dish = keyword.replace(/\s/g, "");
 		$(".find").click(function() {
 			$("#question-holder").empty();
 			//add goBack button to result
-			$("#goBack-holder").html("<span class='goBack3'>X</span>");
 			restaurantsSellThisDish(dish, keyword);
 			$("#result").show();
 		});
@@ -235,101 +84,67 @@ $(function() {
 
 	//Guru Option
 	$("#favorite").on("click", function() {
-		$("#options1_2_3").hide();
-		hidden();
-		function answerGuru() {
-			$("#question-holder").empty();
-			$("#question-holder").hide();
-			$(".close").append("<span class='backToMainPage'>X</span>");
-			$("#answerMe").show();
-			$("#question-holder").show();
-			questionMaker("Are You Really Hungry?", "Yes", "No");
+		var answerMeContainerHeight = Math.floor($(window).height() * 0.85);
+		var marginPx = Math.floor(($(window).height() - $(".navbar").height() - answerMeContainerHeight) / 2);
+		$("#option-wrapper").hide();
+		$("#question-holder").empty();
+		$("#question-holder").hide();
+		$("#answerMe").css("height", answerMeContainerHeight + "px").css("margin-top", marginPx + "px").show();
+		$("#question-holder").show();
+		questionMaker("Are You Really Hungry?", "Yes", "No");
+		$(".left").click(function() {
+			$(this).parent().remove();
+			questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
 			$(".left").click(function() {
 				$(this).parent().remove();
-				questionMaker("Do You Like Soup or Non-Soup?", "Non-Soup", "Soup");
+				questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle");
+				//case 1
 				$(".left").click(function() {
 					$(this).parent().remove();
-					questionMaker("Do You Like To Eat Noodle or Non-Noodle?", "Non-Noodle", "Noddle");
-					//case 1
-					$(".left").click(function() {
-						$(this).parent().remove();
-						guruChoice("I Think You Should Try", dried_non_noddle);
-					});
-					//case 2
-					$(".right").click(function() {
-						$(this).parent().remove();
-						guruChoice("I Think You Should Try", dried_noddle);
-					});
+					guruChoice("I Think You Should Try", dried_non_noddle);
 				});
+				//case 2
 				$(".right").click(function() {
 					$(this).parent().remove();
-					questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy");
-					//case 3
-					$(".left").click(function() {
-						$(this).parent().remove();
-						guruChoice("I Think You Should Try", spicy_soup);
-					});
-					//case 4
-					$(".right").click(function() {
-						$(this).parent().remove();
-						guruChoice("I Think You Should Try", non_spicy_soup);
-					});
+					guruChoice("I Think You Should Try", dried_noddle);
 				});
 			});
 			$(".right").click(function() {
 				$(this).parent().remove();
-				questionMaker("Do You Just Like Appertizer or Sandwich?", "Appertizer", "Sandwich");
-				//case 5
+				questionMaker("Do You Like Spicy Soup or Non Spice Soup?", "Spicy", "Non-Spicy");
+				//case 3
 				$(".left").click(function() {
 					$(this).parent().remove();
-					guruChoice("I Think You Should Try", appertizer);
+					guruChoice("I Think You Should Try", spicy_soup);
 				});
-				//case 6
+				//case 4
 				$(".right").click(function() {
 					$(this).parent().remove();
-					guruChoice("I Think You Should Try", non_appertizer);
+					guruChoice("I Think You Should Try", non_spicy_soup);
 				});
 			});
-		}
-		answerGuru();
-		$("body").on("click", ".backToMainPage", function() {
-			$(this).remove();
+		});
+		$(".right").click(function() {
+			$(this).parent().remove();
+			questionMaker("Do You Just Like Appertizer or Sandwich?", "Appertizer", "Sandwich");
+			//case 5
+			$(".left").click(function() {
+				$(this).parent().remove();
+				guruChoice("I Think You Should Try", appertizer);
+			});
+			//case 6
+			$(".right").click(function() {
+				$(this).parent().remove();
+				guruChoice("I Think You Should Try", non_appertizer);
+			});
+		});
+		// for user to go back to main page if don't want to answer guru
+		$(".close_guru_option").on("click", function() {
+			$("#option-wrapper").show();
 			$("#answerMe").hide();
-			$("#options1_2_3").show();
 		});
-		$("body").on("click", ".goBack3", function() {
-			$(this).remove();
-			$(".backToMainPage").remove();
-			hidden();
-			answerGuru();
-		});
-		$("#restaurantList").on("click", ".chosen", function(event) {
-			$(".backToMainPage").remove();
-			hidden();
-			event.preventDefault();
-			var name = $(this).attr("id");
-			var address1 = $(this).next().text();
-			var address2 = $(this).next().next().text();
-			var reviewNeedToBeWritten = {
-				business: name,
-				address1: address1,
-				address2: address2,
-				thought: "Please write a review for your last visit.",
-				written: false,
-				dateVisited: (new Date()).toDateString()
-			};
-			//save review to database
-			$.post("/api/reviews", reviewNeedToBeWritten);
-			$(".goBack3").remove();
-			$("#reminder").show();
-			$("html, body").animate({
-				scrollTop: 0
-			});
-			$("body").on("click", ".ok", function() {
-				$("#reminder").hide();
-				$("#options1_2_3").show();
-				hidden();
-			});
-		});
+		// back to main page
+		$(".close_result").on("click", backToMainPage);
+		$("#restaurantList").on("click", ".chosen", review);
 	});
 });

@@ -13,17 +13,67 @@
 	</head>
 	<body>
 		{{> navbar}}
-		
-		<div class="container-fluid" id="options1_2_3">
-			<div class="row">
-				<div class="col-sm-10 col-sm-offset-1 text-center" id="panel" hidden>
-					<div id="picsHolder1">
-						<div class="row">
-							<div class="col-sm-12">
-								<span class="topOption">X</span>
-								<h2 class="text-center">15 Best Vietnamese Dishes</h2>
-							</div>
+
+		<div class="container-fluid" id="option-wrapper">
+			<div class="intro-header" id="common-section">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="title">
+							<h1>15 Best Vietnamese Dishes</h1>
+							<hr class="intro-divider">
+							<button type="button" class="btn btn-danger choice_button" id="first_option">Top Dishes</button>
+							<br>
+							<br>
+							<h1 class="down"><a href="#random-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
 						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="intro-header2" id="random-section">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="title">
+							<h1>Are You Still Deciding?</h1>
+							<hr class="intro-divider">
+							<button type="button" class="btn btn-danger" id="random">Click Me</button>
+							<br>
+							<br>
+							<h1 class="down"><a href="#guru-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="intro-header3" id="guru-section">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="title">
+							<h1>You Really Need to See Me</h1>
+							<hr class="intro-divider">
+							<button type="button" class="btn btn-danger" id="favorite">Let's Talk</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- end option-wrapper	 -->
+
+		<div class="container-fluid text-center" id="dish-holder" hidden>
+			<!-- <div id="picsHolder1"> -->
+				<br>
+				<div class="pull-right">
+					<div class="close-panel close_dish_holder">
+						<div class="lr">
+		          <div class="rl">
+		          </div>
+		        </div>
+		      </div>
+				</div>
+				<br>
+				<br>
+				<h2>15 Best Vietnamese Dishes</h2>
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
 						<div class="row">
 							<div class="col-xs-6 col-md-4">
 								<div class="thumbnail">
@@ -147,64 +197,24 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-12">
-								<button type="button" class="back" style="margin-bottom: 15px">Back</button>
+							<div class="col-sm-12 text-center">
+								<button type="button" class="close_dish_holder" style="margin-bottom: 15px">Close</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div id="option-holder">
-				<div class="intro-header">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="title">
-								<h1>15 Best Vietnamese Dishes</h1>
-								<hr class="intro-divider">
-								<button type="button" class="btn btn-danger topOption" id="topDishes">Top Dishes</button>
-								<br>
-								<br>
-								<h1 class="down"><a href="#random-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="intro-header2" id="random-section">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="title">
-								<h1>Are You Still Deciding?</h1>
-								<hr class="intro-divider">
-								<button type="button" class="btn btn-danger" id="random">Click Me</button>
-								<br>
-								<br>
-								<h1 class="down"><a href="#guru-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
-							</div>
-						</div>
-					</div>
-				</div>
-			
-				<div class="intro-header3" id="guru-section">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="title">
-								<h1>You Really Need to See Me</h1>
-								<hr class="intro-divider">
-								<button type="button" class="btn btn-danger" id="favorite">Let's Talk</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			<!-- </div> -->
+		</div> <!-- end of dish-holder -->
 		
 		<div class="container-fluid" id="result" hidden>
-			<div class="row">
-				<div class="col-sm-12" id="goBack-holder">
-					<!-- x close button will be set from js -->
-				</div>
+			<br>
+			<div class="pull-right">
+				<div class="close-panel close_result">
+					<div class="lr">
+	          <div class="rl">
+	          </div>
+	        </div>
+	      </div>
 			</div>
 			<div class="row" id="description_map">
 				<div class="col-sm-6" id="foodDescription">
@@ -219,45 +229,46 @@
 					<div id="map"></div>
 				</div>
 			</div>
-		</div>
-		<div class="container-fluid" id="restaurantList">
 			<br>
-			<div class="row" >
-				<div class="col-sm-10 col-sm-offset-1">
-					<div class="row">
-						<script id="restaurant-template" type="text/x-handlebars-template">
-							{{#if user}}
-								\{{#each restaurants}}
-									<div class="col-xs-6 col-md-6">
-										<div class="thumbnail restaurant-thumbnail" style="min-height: 236px">
-											<h4>\{{name}}</h4>
-											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[1]}}</p>
-											<p>Tel: \{{display_phone}}</p>
-											<button type="button" class="chosen" id="\{{name}}">Save</button>
-											<hr>
+			<br>
+			<div id="restaurantList">
+				<div class="row" >
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="row">
+							<script id="restaurant-template" type="text/x-handlebars-template">
+								{{#if user}}
+									\{{#each restaurants}}
+										<div class="col-xs-6 col-md-6">
+											<div class="thumbnail restaurant-thumbnail" style="min-height: 236px">
+												<h4>\{{name}}</h4>
+												<p>\{{location.display_address.[0]}}</p>
+												<p>\{{location.display_address.[1]}}</p>
+												<p>Tel: \{{display_phone}}</p>
+												<button type="button" class="chosen" id="\{{name}}">Save</button>
+												<hr>
+											</div>
 										</div>
-									</div>
-								\{{/each}}
-							{{else}}
-								\{{#each restaurants}}
-									<div class="col-xs-6 col-md-6">
-										<div class="thumbnail restaurant-thumbnail" style="min-height: 190px">
-											<h4>\{{name}}</h4>
-											<p><img src="\{{rating_img_url}}" class="pull-left"></p>
-											</br>
-											<p>\{{location.display_address.[0]}}</p>
-											<p>\{{location.display_address.[1]}}</p>
-											<p>Tel: \{{display_phone}}</p>
+									\{{/each}}
+								{{else}}
+									\{{#each restaurants}}
+										<div class="col-xs-6 col-md-6">
+											<div class="thumbnail restaurant-thumbnail" style="min-height: 190px">
+												<h4>\{{name}}</h4>
+												<p><img src="\{{rating_img_url}}" class="pull-left"></p>
+												</br>
+												<p>\{{location.display_address.[0]}}</p>
+												<p>\{{location.display_address.[1]}}</p>
+												<p>Tel: \{{display_phone}}</p>
+											</div>
 										</div>
-									</div>
-								\{{/each}}
-							{{/if}}
-						</script>
+									\{{/each}}
+								{{/if}}
+							</script>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> <!-- end of result -->
 		
 		<div class="container-fluid">
 			<div class="row">
@@ -270,16 +281,28 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="container" id="answerMe" hidden>
-			<div class="row">
-				<div class="col-sm-12 close">
-					<!-- X close will be append here -->
-				</div>
+			<br>
+			<div class="pull-right">
+				<div class="close-panel close_guru_option">
+					<div class="lr">
+	          <div class="rl">
+	          </div>
+	        </div>
+	      </div>
 			</div>
-			<div class="text-center" id="question-holder" hidden>
+			<br>
+			<br>
+			<br>
+			<br>
+			<img src='/images/guru.png' class='img-responsive guru-question'>
+			<br>
+			<div class="text-center" id="question-holder">
 				<!-- questions will be append here -->
 			</div>
 		</div>
+
 		<!-- jquery -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<!-- bootstrap js -->
