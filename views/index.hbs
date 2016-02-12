@@ -15,12 +15,12 @@
 		{{> navbar}}
 
 		<div class="container-fluid" id="option-wrapper">
-			<div class="intro-header" id="common-section">
+			<div class="choice-header" id="common-section">
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="title">
 							<h1>15 Best Vietnamese Dishes</h1>
-							<hr class="intro-divider">
+							<hr class="choice-divider">
 							<button type="button" class="btn btn-danger choice_button" id="first_option">Top Dishes</button>
 							<br>
 							<br>
@@ -30,13 +30,13 @@
 				</div>
 			</div>
 			
-			<div class="intro-header2" id="random-section">
+			<div class="choice-header2" id="random-section">
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="title">
 							<h1>Are You Still Deciding?</h1>
-							<hr class="intro-divider">
-							<button type="button" class="btn btn-danger" id="random">Click Me</button>
+							<hr class="choice-divider">
+							<button type="button" class="btn btn-danger choice_button" id="random">Click Me</button>
 							<br>
 							<br>
 							<h1 class="down"><a href="#guru-section"><span class="glyphicon glyphicon-menu-down" style="float: none; color: white"></span></a></h1>
@@ -45,13 +45,13 @@
 				</div>
 			</div>
 		
-			<div class="intro-header3" id="guru-section">
+			<div class="choice-header3" id="guru-section">
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="title">
 							<h1>You Really Need to See Me</h1>
-							<hr class="intro-divider">
-							<button type="button" class="btn btn-danger" id="favorite">Let's Talk</button>
+							<hr class="choice-divider">
+							<button type="button" class="btn btn-danger choice_button" id="favorite">Let's Talk</button>
 						</div>
 					</div>
 				</div>
@@ -206,7 +206,7 @@
 			<!-- </div> -->
 		</div> <!-- end of dish-holder -->
 		
-		<div class="container-fluid" id="result" hidden>
+		<div class="container" id="result" hidden>
 			<br>
 			<div class="pull-right">
 				<div class="close-panel close_result">
@@ -225,7 +225,7 @@
 						<p>\{{dish.description}} <i>(\{{dish.source}})</i></p>
 					</script>
 				</div>
-				<div class="col-sm-6 map-holder">
+				<div class="col-sm-6">
 					<div id="map"></div>
 				</div>
 			</div>
@@ -234,30 +234,31 @@
 			<div id="restaurantList">
 				<div class="row" >
 					<div class="col-sm-10 col-sm-offset-1">
-						<div class="row">
+						<div class="row" id="restaurantResult">
 							<script id="restaurant-template" type="text/x-handlebars-template">
 								{{#if user}}
 									\{{#each restaurants}}
 										<div class="col-xs-6 col-md-6">
-											<div class="thumbnail restaurant-thumbnail" style="min-height: 236px">
-												<h4>\{{name}}</h4>
-												<p>\{{location.display_address.[0]}}</p>
-												<p>\{{location.display_address.[1]}}</p>
-												<p>Tel: \{{display_phone}}</p>
+											<div class="thumbnail restaurant-thumbnail" style="min-height: 175px">
+												<div class="restaurantAddress">
+													<h4>\{{name}}</h4>
+													<p>\{{location.display_address.[0]}}</p>
+													<p>\{{location.city}}, \{{location.state_code}} - \{{location.postal_code}}</p>
+													<p>Tel: \{{display_phone}}</p>
+												</div>
 												<button type="button" class="chosen" id="\{{name}}">Save</button>
-												<hr>
 											</div>
 										</div>
 									\{{/each}}
 								{{else}}
 									\{{#each restaurants}}
 										<div class="col-xs-6 col-md-6">
-											<div class="thumbnail restaurant-thumbnail" style="min-height: 190px">
+											<div class="thumbnail restaurant-thumbnail" style="min-height: 160px">
 												<h4>\{{name}}</h4>
 												<p><img src="\{{rating_img_url}}" class="pull-left"></p>
 												</br>
 												<p>\{{location.display_address.[0]}}</p>
-												<p>\{{location.display_address.[1]}}</p>
+												<p>\{{location.city}}, \{{location.state_code}} - \{{location.postal_code}}</p>
 												<p>Tel: \{{display_phone}}</p>
 											</div>
 										</div>
@@ -295,9 +296,7 @@
 			<br>
 			<br>
 			<br>
-			<br>
 			<img src='/images/guru.png' class='img-responsive guru-question'>
-			<br>
 			<div class="text-center" id="question-holder">
 				<!-- questions will be append here -->
 			</div>

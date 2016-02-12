@@ -1,21 +1,9 @@
-var createMap = function() {
-	var currentLongitude = Number(localStorage.getItem("longitude"));
-	var currentLatitude = Number(localStorage.getItem("latitude"));
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: {
-			lat: currentLatitude,
-			lng: currentLongitude
-		},
-		zoom: 12
-	});
-};
-
 function getLocation() {
 	localStorage.clear();
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(success);
 	} else {
-		alert("If you don't allow location service, default will be San Francisco.");
+		alert("If you don't allow location service, you will be ask for zip code!ß");
 	}
 }
 
@@ -55,8 +43,21 @@ var template2 = Handlebars.compile(source2);
 
 function restaurantsSellThisDish(dish, keyword) {
 	var currentLocation = localStorage.getItem("zipCode");
-	$("#answerMe").hide();
+	$("#result").show();
 	$("#map").show();
+	var createMap = function() {
+		var currentLongitude = Number(localStorage.getItem("longitude"));
+		var currentLatitude = Number(localStorage.getItem("latitude"));
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {
+				lat: currentLatitude,
+				lng: currentLongitude
+			},
+			scrollwheel: false,
+			zoom: 12
+		});
+	};
+	$("#answerMe").hide();
 	$.get("/api/" + dish, {
 		location: currentLocation
 	}, function(data) {
@@ -69,7 +70,7 @@ function restaurantsSellThisDish(dish, keyword) {
 		$("#restaurantList").append(restaurantHtml);
 		restaurants.forEach(function(restaurant) {
 			var contentString = '<div id="content">' +
-				'<div id="siteNo(tice">' +
+				'<div id="siteNotice">' +
 				'</div>' +
 				'<h5 id="firstHeading" class="firstHeading">' + restaurant.name + '</h5>' +
 				'</div>';
@@ -143,6 +144,28 @@ function randomNum(array) {
 
 //back to main page from result
 function backToMainPage() {
+	$("#foodDescription").empty();
+	$("#restaurantList").empty();
+	$("#dish-holder").hide();
 	$("#result").hide();
 	$("#option-wrapper").show();
+}
+
+//guru choice
+function guruChoice(message, category) {
+	var random = randomNum(category);
+	getImageId = category[random].toLowerCase().replace(/\s/g, "_");
+	$image = $("#" + getImageId).clone();
+	$image.attr("id", "guru_choice_pic").addClass("thumbnail find");
+	console.log($image);
+	$("#question-holder").append("<div class='guru-result'</div>");
+	$(".guru-result").append("<h2>" + message + " " + category[random] + "</h2>")
+		.append($image)
+		.append("<button type='button' class='btn btn-danger find'>Find Restaurants</button>");
+	keyword = category[random].toLowerCase();
+	var dish = keyword.replace(/\s/g, "");
+	$(".find").click(function() {
+		$("#question-holder").empty();
+		restaurantsSellThisDish(dish, keyword);
+	});
 }

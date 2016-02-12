@@ -23,32 +23,25 @@ $(function() {
 			$("#option-wrapper").show();
 			$("#dish-holder").hide();
 		});
-	});
-
-	$("#dish-holder").on("click", "img", function(event) {
-		$("#dish-holder").hide();
-		var keyword = $(this).attr("id").replace(/_/g, " ");
-		var dish = keyword.replace(/\s/g, "");
-		restaurantsSellThisDish(dish, keyword);
-		$("#result").show();
-		$(".close_result").on("click", function() {
-			$("#result").hide();
-			$("#dish-holder").show();
+		$("#dish-holder").on("click", "img", function(event) {
+			$("#dish-holder").hide();
+			var keyword = $(this).attr("id").replace(/_/g, " ");
+			var dish = keyword.replace(/\s/g, "");
+			restaurantsSellThisDish(dish, keyword);
+			$("#restaurantList").on("click", ".chosen", review);
 		});
-		$("#restaurantList").on("click", ".chosen", review);
+		$(".close_result").on("click", backToMainPage);
 	});
-
 
 	//Random Options Chosen
 	$("#random").click(function() {
 		var random = randomNum(commonDishes);
 		keyword = commonDishes[random];
 		var dish = keyword.replace(/\s/g, "");
-		restaurantsSellThisDish(dish, keyword);
 		$("#option-wrapper").hide();
-		$("#result").show();
-		$(".close_result").on("click", backToMainPage);
+		restaurantsSellThisDish(dish, keyword);
 		$("#restaurantList").on("click", ".chosen", review);
+		$(".close_result").on("click", backToMainPage);
 	});
 
 	//function helper 
@@ -59,27 +52,6 @@ $(function() {
 			.append("<h2>" + question + "</h2>")
 			.append("<button type='button' class='btn btn-danger left'>" + answer1 + "</button>")
 			.append("<button type='button' class='btn btn-danger right'>" + answer2 + "</button>");
-	}
-
-	//helper function 
-	function guruChoice(message, category) {
-		var random = randomNum(category);
-		getImageId = category[random].toLowerCase().replace(/\s/g, "_");
-		$image = $("#" + getImageId).clone();
-		$image.attr("id", "guru_choice_pic").addClass("thumbnail");
-		console.log($image);
-		$("#question-holder").append("<div class='guru-result'</div>");
-		$(".guru-result").append("<h2>" + message + " " + category[random] + "</h2>")
-			.append($image)
-			.append("<button type='button' class='btn btn-danger find'>Find Restaurants</button>");
-		keyword = category[random].toLowerCase();
-		var dish = keyword.replace(/\s/g, "");
-		$(".find").click(function() {
-			$("#question-holder").empty();
-			//add goBack button to result
-			restaurantsSellThisDish(dish, keyword);
-			$("#result").show();
-		});
 	}
 
 	//Guru Option

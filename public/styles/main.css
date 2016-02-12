@@ -38,48 +38,43 @@ html,body {
   transform: rotate(90deg);
 }
 
-.intro-header, .intro-header2, .intro-header3 {
-    padding-top: 50px; 
-    padding-bottom: 50px;
-    text-align: center;
-    color: #f8f8f8;
+.choice-header, .choice-header2, .choice-header3 {
+  padding-top: 50px; 
+  padding-bottom: 50px;
+  text-align: center;
+  color: #f8f8f8;
 }
-.intro-header {
-    background: url(/images/papaya_salad.jpg) no-repeat center center;
-    background-size: cover;
+.choice-header {
+  background: url(/images/papaya_salad.jpg) no-repeat center center;
+  background-size: cover;
 }
-.intro-header2 {
-    background: url(/images/summer_roll.jpg) no-repeat center center;
-    background-size: cover;
+.choice-header2 {
+  background: url(/images/summer_roll.jpg) no-repeat center center;
+  background-size: cover;
 }
-.intro-header3 {
-    background: url(/images/pho.jpg) no-repeat center center;
-    background-size: cover;
+.choice-header3 {
+  background: url(/images/pho.jpg) no-repeat center center;
+  background-size: cover;
 }
 .title {
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+  position: relative;
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 .title > h1, .down {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  font-size: 5em;
 }
 
-.intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+.choice-divider {
+  width: 300px;
+  height: 3px;
+  background-color: white;
+  border: 0 none;
 }
 
-.choice_button {
-	padding: 10px;
-  font-size: 26px;
-}
-
-/*#######################*/
 
 .navbar-inverse{
 	border-radius: 0px;
@@ -109,9 +104,12 @@ img.thumbnail-pic {
 #papayaSalad-img, #summerRoll-img, #pho-img {
 	position: relative;
 }
-button#topDishes, button#random, button#favorite, button.left, button.right, button.find {
+.choice_button, button.left, button.right, button.find {
 	padding: 10px;
   font-size: 26px;
+}
+.choice_button {
+  min-width: 155px
 }
 button.left, button.right {
 	margin: 10px;
@@ -147,24 +145,6 @@ button.left, button.right {
 	margin-top: 15px;
 }
 
-#lower1, #lower2, #lower3, #reminder {
-	padding: 0;
-}
-#picsHolder1, #picsolder2 {
-	position: relative;
-	margin: 15px 0px 15px 0px;
-}
-#picsHolder1 img, #picsHolder2 img, #options1_2_3 span, #goBack-holder span, .close span {
-	cursor: pointer;
-}
-#options1_2_3 span, #goBack-holder span, .close span {
-	color: #A9A9A9;
-	float: right;
-	margin: 10px 0px 10px 0px;
-}
-span.backToMainPage, span.goBack, span.topOption {
-	font-size: 25px;
-}
 .next, .back , .ok, .chosen {
   border: none;
   width: 11.125rem;
@@ -176,6 +156,7 @@ span.backToMainPage, span.goBack, span.topOption {
   color: #fff;
 }
 .chosen {
+  margin-top: 5px;
 	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
 	margin-left: 15px;
 }
@@ -195,12 +176,15 @@ span.backToMainPage, span.goBack, span.topOption {
 }
 #result {
 	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
+  margin: 0px;
+  width: 100%;
 }
-/*#restaurantList {
-	margin-top: 20px;
-}*/
+
 #restaurantList h4, #restaurantList p {
 	padding-left: 15px;
+}
+#restaurantList p {
+  margin-bottom: 0px;
 }
 #msg { 
   position: absolute; 
@@ -237,7 +221,14 @@ span.backToMainPage, span.goBack, span.topOption {
 	margin-bottom: 10px;
 }
 @media (max-width: 600px) {
-  button#topDishes, button#random, button#favorite {
+  .title > h1 {
+    font-size: 30px;
+  }
+  .choice-divider {
+    width: 150px;
+  }
+  .choice_button {
+    min-width: 95px; 
 		padding: 5px;
 	  font-size: 16px;
 	}
@@ -247,4 +238,16 @@ span.backToMainPage, span.goBack, span.topOption {
 	color: white;
 	text-shadow: 1px 1px #333
 	}
+  .restaurant-thumbnail {
+    min-height: 160px;
+  }
+  .restaurantAddress {
+  min-height: 85px;
+  }
+  #restaurantList h4 {
+    font-size: 14px;
+  }
+  #restaurantList p {
+    font-size: 10px;
+  }
 }
