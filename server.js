@@ -159,7 +159,8 @@ description.forEach(function(x) {
 			})
 			.then(function(data) {
 				res.json({
-					restaurants: data.businesses
+					restaurants: data.businesses,
+					lnglat: data.region.center
 				});
 			})
 			.catch(function(err) {

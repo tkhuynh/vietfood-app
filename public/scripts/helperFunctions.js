@@ -21,8 +21,19 @@ function success(position) {
 		geocoder.geocode({
 			'location': latlng
 		}, function(results, status) {
-			zipCode = results[0].address_components[6].short_name;
-			localStorage.setItem("zipCode", zipCode);
+			// get zip code from result
+			zipCode = results[0].formatted_address.match(/CA\s\d{5}/)[0].slice(-5);
+			if (/\d{5}/.test(zipCode)) {
+				localStorage.setItem("zipCode", zipCode);
+			} else {
+				// if failed to get zip code with above method
+				zipCode = results[2].address_components[0].short_name;
+				// if failed a gain, do a prompt to get zip code entered from user
+				while (/\d{5}/.test(zipCode) === false) {
+					zipCode = prompt("Failed to get currrent location.\nPlease enter zip code.");
+				}
+				localStorage.setItem("zipCode", zipCode);
+			}
 			localStorage.setItem("latitude", x);
 			localStorage.setItem("longitude", y);
 		});
@@ -45,15 +56,14 @@ function restaurantsSellThisDish(dish, keyword) {
 	var currentLocation = localStorage.getItem("zipCode");
 	$("#result").show();
 	$("#map").show();
-	var createMap = function() {
-		var currentLongitude = Number(localStorage.getItem("longitude"));
-		var currentLatitude = Number(localStorage.getItem("latitude"));
+	var createMap = function(lat, lng) {
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
-				lat: currentLatitude,
-				lng: currentLongitude
+				lat: lat,
+				lng: lng
 			},
 			scrollwheel: false,
+			draggable: false,
 			zoom: 12
 		});
 	};
@@ -61,8 +71,12 @@ function restaurantsSellThisDish(dish, keyword) {
 	$.get("/api/" + dish, {
 		location: currentLocation
 	}, function(data) {
+		console.log(data);
 		$("#result, .goBack, .goBack2").show();
 		var restaurants = data.restaurants;
+		var currentLatitude = data.lnglat.latitude;
+		var currentLongitude = data.lnglat.longitude;
+		createMap(currentLatitude, currentLongitude);
 		$("#restaurantList").empty();
 		var restaurantHtml = template2({
 			restaurants: restaurants
@@ -109,7 +123,6 @@ function restaurantsSellThisDish(dish, keyword) {
 		});
 		$description.append(descriptionHtml);
 	});
-	createMap();
 }
 //for review 
 function review() {
