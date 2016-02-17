@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Gentium+Basic:400,700italic' rel='stylesheet' type='text/css'>
-	<link type="text/css" rel="stylesheet" href="styles/login.css">
-	<title>Log In</title>
-</head>
-<body>
-
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>                        
-	      </button>
-	      <a class="navbar-brand" href="#">VietFoodGuru</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav navbar-right">
-	      	<li><a href="/home"><span class="glyphicon glyphicon-log-in"></span> Guest Login</a></li>
-	        <li><a href="/#signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
-
-	{{#if errorMessage}}    
-		<div class="alert alert-danger">
-    	<div class="container">{{errorMessage}}</div>
-    </div>
-  {{/if}}
-  
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-7 text-center">
-				<img src="https://cdn.cpnscdn.com/static.coupons.com/ext/kitchme/images/recipes/600x400/chinese-egg-rolls_6281.jpg" class="img-thumbnail img-responsive" id="main-left-img">
-				<div class="text-center" id="slogan">
-					<h4>"Fresh herbs, lots of vegetables and seafood, and cooking techniques that use water or broth instead of oils -- these are some of the standout qualities of Vietnamese food." (CNN)</h4>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Gentium+Basic:400,700italic' rel='stylesheet' type='text/css'>
+		<link type="text/css" rel="stylesheet" href="styles/login.css">
+		<title>Log In</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">VietFoodGuru</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/home"><span class="glyphicon glyphicon-log-in"></span> Guest Login</a></li>
+						<li><a href="/#signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+					</ul>
 				</div>
 			</div>
-
-			<div class="col-sm-5 text-center" id="signinForm">
-				<form class="form-signin" method="POST" action="/login">
-					<h2 class="form-signin-heading">Please sign in</h2>
-					<input type="text" name="username" class="form-control" placeholder="User Name" required autofocus style="height: 50px">
-					<input type="password" name="password" class="form-control" placeholder="Password" required style="height: 50px">
-					<br>
-					<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Sign in</button>
-				</form>
+		</nav>
+		{{#if errorMessage}}
+		<div class="alert alert-danger">
+			<div class="container">{{errorMessage}}</div>
+		</div>
+		{{/if}}
+		
+		<div class="content-section-a">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-sm-6">
+						<div class="thumbnail">
+							<img class="img-responsive" src="/images/login_pic.jpg" alt="">
+							<p class="lead">"Fresh herbs, lots of vegetables and seafood, and cooking techniques that use water or broth instead of oils -- these are some of the standout qualities of Vietnamese food." (CNN)</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-6" style="position: relative">
+						<form class="form-signin" id="signinForm" method="POST" action="/login">
+							<h2 class="text-center">Welcome Back<br>Please Log In</h2>
+							<input type="text" name="username" class="form-control" placeholder="User Name" required autofocus style="height: 50px">
+							<input type="password" name="password" class="form-control" placeholder="Password" required style="height: 50px">
+							<br>
+							<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Sign in</button>
+							<br>
+							<p class="text-center">Don't have an account? <a href="/#signup">Sign Up</a>.</p>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	
-	<!-- jquery -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-	<!-- bootstrap js -->
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<!-- jquery validate -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-	<!-- custom script -->
-	<script type="text/javascript" src="/scripts/validations.js"></script>
-	<script type="text/javascript" src="/scripts/helperFunctions.js"></script>
-</body>
+		
+		<!-- jquery -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+		<!-- bootstrap js -->
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- jquery validate -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+		<!-- custom script -->
+		<script type="text/javascript" src="/scripts/validations.js"></script>
+		<script type="text/javascript" src="/scripts/helperFunctions.js"></script>
+	</body>
 </html>
