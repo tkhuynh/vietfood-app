@@ -1,73 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Gentium+Basic:400,700italic' rel='stylesheet' type='text/css'>
-	<link type="text/css" rel="stylesheet" href="/styles/signupStyle.css">
-
-	<title>VietFoodGuru - A quickest way to discover Vietnamese Cuisine</title>
-</head>
-<body>
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>                        
-	      </button>
-	      <a class="navbar-brand" href="#">VietFoodGuru</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav navbar-right">
-	      	<li><a href="/home"><span class="glyphicon glyphicon-log-in"></span> Guest Login</a></li>
-	        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
-
-	{{#if errorMessage}}    
-		<div class="alert alert-danger">
-    	<div class="container">{{errorMessage}}</div>
-    </div>
-  {{/if}}
-  
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-7 text-center">
-				<img src="http://www.vietflames.co.nz/file/2015/05/vietnamese-cuisine-2.jpg" class="img-thumbnail img-responsive" id="main-left-img">
-				<div class="text-center" id="slogan">
-					<h2>VietFoodGuru</h2>
-					<h4>The Quickest Way To Explore Vietnamese Cuisine Near You</h4>
+	<head>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Gentium+Basic:400,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" type'text/css'>
+		<link type="text/css" rel="stylesheet" href="/styles/signupStyle.css">
+		<title>VietFoodGuru - A quickest way to discover Vietnamese Cuisine</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">VietFoodGuru</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+						<li><a href="/home"><span class="glyphicon glyphicon-log-in"></span> Guest Login</a></li>
+						<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</ul>
 				</div>
 			</div>
-
-			<div class="col-sm-5 text-center" id="signupForm">
-				<form class="form-signup" method="POST" action="/" id="signup-form">
-					<h4 class="form-signup-heading">Craving for some Vietnamese Food?</h4>
-					<h4>Join Us to Find A Restaurant</h4>
-					<input type="text" name="username" class="form-control" placeholder="Username" required autofocus style="height: 50px">
-					<input type="password" name="password" class="form-control" placeholder="Password" style="height: 50px" required minlength="6">
-					<br>
-					<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Sign Up</button>
-				</form>
+		</nav>
+		{{#if errorMessage}}
+		<div class="alert alert-danger">
+			<div class="container">{{errorMessage}}</div>
+		</div>
+		{{/if}}
+		<a name="about"></a>
+		<div class="intro-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="intro-message">
+							<h1>Viet Food Guru</h1>
+							<h3>The Best Way to Explore Vietnamese Cuisine Near You</h3>
+							<hr class="intro-divider">
+							<a href="#services" class="btn btn-circle">
+								<i class="fa fa-angle-double-down"></i>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<!-- jquery -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-	<!-- bootstrap js -->
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<!-- jquery validate -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-	<!-- google maps -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLW53XqF9lI7UwwQkhzZBdBSG91Ywvyb8" type="text/javascript"></script>
-	<!-- custom script -->
-	<script type="text/javascript" src="/scripts/validations.js"></script>
-	<script type="text/javascript" src="/scripts/helperFunctions.js"></script>
-</body>
+		<a name="services"></a>
+		<div class="content-section-b">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-sm-6">
+						<hr class="section-heading-spacer">
+						<div class="clearfix"></div>
+						<h2 class="section-heading">15 Best Vietnamese Dishes</h2>
+						<p class="lead">We recommend you a list of 15 best Vietnamese dishes, you can pick one and the app will gives you a brief description about the dish and a list of restaurants near you that serve it.</p>
+					</div>
+					<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+						<img class="img-responsive" src="/images/1st.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-section-a">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+						<hr class="section-heading-spacer">
+						<div class="clearfix"></div>
+						<h2 class="section-heading">Random Choice</h2>
+						<p class="lead">If you haven't tried Vietnamese food before and you don't know what dish you should try, let us make a decision for you by giving you a randome choice.</p>
+					</div>
+					<div class="col-lg-5 col-sm-pull-6  col-sm-6">
+						<img class="img-responsive" src="/images/2nd.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-section-b">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-sm-6">
+						<hr class="section-heading-spacer">
+						<div class="clearfix"></div>
+						<h2 class="section-heading">Mr. Guru's Choice</h2>
+						<p class="lead">Mr. Guru will ask you three basic questions and recommend you a Vietnamese dish from the list based on your answers.</p>
+					</div>
+					<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+						<img class="img-responsive" src="/images/3rd.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<a name="signup"></a>
+		<div class="content-section-a">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<form method="POST" action="/" id="signup-form">
+							<h3 class="text-center">Join Us to Share Your Reviews<br>of The Restaurant You Visited</h3>
+							<input type="text" name="username" class="form-control" placeholder="Username" required style="height: 50px">
+							<input type="password" name="password" class="form-control" placeholder="Password" style="height: 50px" required minlength="6">
+							<br>
+							<button class="btn btn-lg btn-danger btn-block" type="submit" style="height: 50px">Sign Up</button>
+							<br>
+							<p class="text-center">Already have an account? <a href="/login">Log In</a>.</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- jquery -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+		<!-- bootstrap js -->
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- jquery validate -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+		<!-- custom script -->
+		<script type="text/javascript" src="/scripts/validations.js"></script>
+		<script type="text/javascript" src="/scripts/helperFunctions.js"></script>
+	</body>
 </html>
