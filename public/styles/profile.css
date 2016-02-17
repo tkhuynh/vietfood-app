@@ -1,23 +1,26 @@
 body {
 	height: 100%;
 	width: 100%;
-	background: url("http://www.hivietnam.net/vi/docs/2013/04/Banh-my-Viet-lam-mua-lam-gio-tai-My_10.jpg");
-	background-size: cover;
-	background-size: cover;
-	background-repeat: no-repeat;
-  background-position: right top;
+	background: url("http://www.hivietnam.net/vi/docs/2013/04/Banh-my-Viet-lam-mua-lam-gio-tai-My_10.jpg") no-repeat center center;
+  background-size: cover;
   background-attachment: fixed;
 }
 .header {
 	margin-top: 10px;
 	background: rgba(237, 237, 237, 1);
+	box-shadow: 0 0 10px 1px rgba(0,0,1,0.9);
 }
 #visitedPlace-list {
 	margin-top: 20px;
 }
 .single_review {
 	background: rgba(237, 237, 237, 1);
-	padding-top: 20px;
+	padding: 20px 0px 20px 0px;
+	box-shadow: 0 0 10px 1px rgba(0,0,1,0.9);
+	margin-bottom: 20px;
+}
+.single_review h3 {
+	margin-top: 0px;
 }
 h1 {
 	font-family: 'Lora', serif;
@@ -35,4 +38,7 @@ h3.reviews {
 }
 #visitedPlace-list p {
 	padding-top: 5px;
+}
+#edit-form {
+	margin-bottom: 20px;
 }

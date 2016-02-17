@@ -16,7 +16,7 @@
 	<body>
 		{{> navbar}}
 		<div class="container text-center header">
-			<h1>Hello, {{user.username}}!</h1>
+			<h1><b>Hello, {{user.username}}!</b></h1>
 		</div>
 		<div class="container" id="visitedPlace-list">
 			{{#if user.reviews}}
@@ -43,14 +43,13 @@
 								<input type="hidden" name="business" class="form-control" value="{{business}}" style="height: 50px">
 								<input type="hidden" name="dateVisited" class="form-control" value="{{dateVisited}}" style="height: 50px">
 								<input type="text" name="thought" class="form-control" style="height: 50px" placeholder="Please write your review" required>
-								<button class="btn btn-lg btn-default" type="submit" style="height: 50px">Edit</button>
+								<button class="btn btn-lg btn-default form-control" type="submit" style="height: 50px">Submit</button>
 							</form>
 						</div>
 					</div>
-					<hr>
 				{{/each}}
 			{{else}}
-				<h3 class="text-center reviews">You haven't went to any recommended restaurant.</h3>
+				<h3 class="text-center reviews single_review">You haven't went to any recommended restaurant.</h3>
 			{{/if}}
 		</div>
 

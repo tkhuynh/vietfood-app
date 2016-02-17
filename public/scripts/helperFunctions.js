@@ -132,8 +132,9 @@ function review() {
 	});
 	$("#reminder").show();
 	var name = $(this).attr("id");
-	var address1 = $(this).next().text();
-	var address2 = $(this).next().next().text();
+	var address1 = $(this).prev().find("p").first().text();
+	var address2 = $(this).prev().find("p:nth-child(3)").text().replace(/CA - /, "CA ");
+	console.log(address1, address2);
 	var reviewNeedToBeWritten = {
 		business: name,
 		address1: address1,

@@ -13,7 +13,10 @@ $(function () {
 	}
 
 	$.get(baseUrl, function (data) {
-		allReviews = data.reviews;
+		// only return acutal written reviews
+		allReviews = data.reviews.filter(function(review) {
+			return review.thought != "Please write a review for your last visit.";
+		});
 		allReviews.reverse();
 		render();
 	});

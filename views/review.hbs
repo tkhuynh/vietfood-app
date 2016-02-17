@@ -8,6 +8,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lora:400,700italic' rel='stylesheet' type='text/css'>
 		<link type="text/css" rel="stylesheet" href="/styles/main.css">
 		<link type="text/css" rel="stylesheet" href="/styles/reviews.css">
 
@@ -22,18 +23,17 @@
 			<script id="review-template" type="text/x-handlebars-template">
 				\{{#each reviews}}
 					<div class="row review_holder">
-						<div class="col-sm-12">
+						<div class="col-sm-5">
 							<h3>\{{business}}</h3>
 							<h4>\{{address1}}</h4>
 							<h4>\{{address2}}</h4>
 						</div>
 					
-						<div class="col-sm-4">
-							<p><i>\{{author.username}} visisted here on \{{dateVisited}}</i></p>
-						</div>
-						<div class="col-sm-8">
+						<div class="col-sm-7">
+							<br>
+							<br>
 							\{{#if written}}
-							<h4 class="reviews">\{{thought}}</h4>
+							<h4 class="reviews"><i>\{{thought}}</i></h4>
 							\{{/if}}
 						</div>
 						<hr>

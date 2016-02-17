@@ -1,19 +1,19 @@
 body {
 	height: 100%;
 	width: 100%;
-	background: url("http://cookdiary.net/wp-content/uploads/images/Cha-Gio_982.png");
-	background-size: cover;
-	background-repeat: no-repeat;
-  background-position: right top;
+	background: url("http://cookdiary.net/wp-content/uploads/images/Cha-Gio_982.png") no-repeat center center;
+  background-size: cover;
   background-attachment: fixed;
 }
 .header {
 	margin-top: 10px;
 	background: rgba(237, 237, 237, 1);
+	box-shadow: 0 0 10px 1px rgba(0,0,1,0.9);
 }
 .review_holder {
 	margin-top: 20px;
 	background: rgba(237, 237, 237, 1);
+	box-shadow: 0 0 10px 1px rgba(0,0,1,0.9);
 	padding: 15px;
 }
 h1 {
@@ -21,6 +21,7 @@ h1 {
 }
 #review-list {
 	padding-top: 20px;
+	margin-bottom: 20px;
 }
 #review-list h3 {
 	font-size: 28px;
@@ -31,7 +32,7 @@ h1 {
 }
 h4.reviews {
 	font-size: 18px;
-	font-family: 'Merriweather', serif;
+	/*font-family: 'Merriweather', serif;*/
 }
 #review-list p {
 	padding-top: 5px;
